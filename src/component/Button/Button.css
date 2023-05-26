@@ -32,11 +32,7 @@
 /*.button.round*/
 .button.round {
   border: none;
-  border-radius: 1000px;
-
-  width: 137px;
-  height: 42px;
-
+  border-radius: 1000px !important;
 }
 
 .button.round:hover {
@@ -59,11 +55,6 @@
 
   border: none;
   border-radius: 1000px;
-
-  width: 137px;
-  height: 42px;
-
-
 }
 
 /*.button.line*/
@@ -114,7 +105,6 @@
 
   width: 275px;
   height: 42px;
-
 }
 
 .button.mideum:hover {
@@ -122,7 +112,6 @@
 }
 
 .button.mideum.disabled {
- 
   color: #fff;
   background-color: #4a4d5e;
   border: none;
@@ -130,12 +119,10 @@
 
   width: 275px;
   height: 42px;
-
 }
 
 /*.button.large*/
 .button.large {
-
   color: #fff;
   background-color: #516df6;
   border: none;
@@ -143,7 +130,6 @@
 
   width: 296px;
   height: 62px;
-
 }
 
 .button.large:hover {
@@ -151,7 +137,6 @@
 }
 
 .button.large.disabled {
-
   color: #fff;
   background-color: #4a4d5e;
   border: none;
@@ -159,5 +144,4 @@
 
   width: 296px;
   height: 62px;
-
 }
