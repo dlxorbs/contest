@@ -1,0 +1,35 @@
+.floatButton{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        /*font-family: ;*/
+        font-size: 16px;
+        
+        cursor: pointer;
+        background-color: rgba(43, 47, 61, 0.9);
+        
+        border: none;
+        border-radius: 1000px;
+        
+        width: 64px;
+        height: 64px;
+        
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        transition: 0.8s;
+
+}
+
+.floatButton:hover{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*content: url(https://i.postimg.cc/dV1XxLZ0/Arrow-forward2-48px.png);*/
+    background-color: #667EEA;
+    transition: 0.8s;
+
+}

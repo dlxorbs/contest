@@ -1,0 +1,163 @@
+/*.button*/
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+
+  /*font-family: ;*/
+  font-size: 16px;
+
+  cursor: pointer;
+  color: #fff;
+  background-color: #516df6;
+
+  border: none;
+  border-radius: 8px;
+
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.button:hover {
+  background-color: #667eea;
+}
+
+.button.disabled {
+  background-color: #4a4d5e;
+}
+
+/*.button.round*/
+.button.round {
+  border: none;
+  border-radius: 1000px;
+
+  width: 137px;
+  height: 42px;
+
+}
+
+.button.round:hover {
+  background-color: #667eea;
+}
+
+.button.round.disabled {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+
+  /*font-family: ;*/
+  font-size: 16px;
+
+  cursor: pointer;
+  color: #fff;
+  background-color: #4a4d5e;
+
+  border: none;
+  border-radius: 1000px;
+
+  width: 137px;
+  height: 42px;
+
+
+}
+
+/*.button.line*/
+.button.line {
+  cursor: pointer;
+  color: #516df6;
+  background-color: transparent;
+
+  border: 2px solid #516df6;
+  border-radius: 8px;
+
+  position: absolute;
+}
+
+.button.line:hover {
+  color: #667eea;
+
+  border: 2px solid #667eea;
+}
+
+.button.line.disabled {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+
+  /*font-family: ;*/
+  font-size: 16px;
+
+  cursor: pointer;
+  color: #fff;
+
+  border: 2px solid #fff;
+  border-radius: 8px;
+
+  position: absolute;
+}
+
+/*.button.mideum*/
+.button.mideum {
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #516df6;
+  border: none;
+  border-radius: 8px;
+
+  width: 275px;
+  height: 42px;
+
+}
+
+.button.mideum:hover {
+  background-color: #667eea;
+}
+
+.button.mideum.disabled {
+ 
+  color: #fff;
+  background-color: #4a4d5e;
+  border: none;
+  border-radius: 8px;
+
+  width: 275px;
+  height: 42px;
+
+}
+
+/*.button.large*/
+.button.large {
+
+  color: #fff;
+  background-color: #516df6;
+  border: none;
+  border-radius: 8px;
+
+  width: 296px;
+  height: 62px;
+
+}
+
+.button.large:hover {
+  background-color: #667eea;
+}
+
+.button.large.disabled {
+
+  color: #fff;
+  background-color: #4a4d5e;
+  border: none;
+  border-radius: 8px;
+
+  width: 296px;
+  height: 62px;
+
+}
