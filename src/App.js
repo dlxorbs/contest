@@ -3,7 +3,8 @@ import Button from "./component/Button/Button";
 import CardThumb from "./component/Card/CardThumb";
 import Profile from "./component/Comment/Profile";
 import ProfilePage from "./component/Comment/ProfilePage";
-
+import Category from "./component/LNB/Categoty";
+import NowContest from "./Page/NowContest";
 function App() {
   return (
     <div className="App">
@@ -12,7 +13,7 @@ function App() {
         thumbnail={"https://www.codingfactory.net/wp-content/uploads/abc.jpg"}
         title={"asd"}
       ></CardThumb>
-      <ProfilePage></ProfilePage>
+      <NowContest />
     </div>
   );
 }

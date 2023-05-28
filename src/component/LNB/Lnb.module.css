@@ -1,0 +1,41 @@
+.cateCon {
+  width: calc(315px - 40px);
+  position: sticky;
+  top: 250px;
+  margin: 0;
+  list-style: none;
+  padding: 0px 20px 16px;
+  background-color: #1e222d;
+  color: #fff;
+}
+
+.categoryWrapper {
+}
+
+.categoryWrapper > li {
+  width: 255px;
+  padding: 10px 0px 10px 20px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.clicked {
+  background-color: #323644;
+}
+.bold {
+  font-weight: 700;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  cursor: pointer;
+}
+
+ul li {
+  list-style: none;
+  padding: 10px 0px 10px 32px;
+  font-size: 16px;
+}

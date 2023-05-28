@@ -30,7 +30,7 @@ function Profile(props) {
     );
   });
   return (
-    <div className={styles.profile}>
+    <div className={styles.profile}>    
       {props.profileImage ? (
         <div className={styles.profile_image}>
           <img src={props.profileImage} alt="Profile" />
