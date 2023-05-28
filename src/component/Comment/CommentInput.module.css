@@ -1,0 +1,72 @@
+/* *{background-color: black;} */
+.Input_Wrapper{
+  width: 1144px;
+    height:178px;
+}
+
+.CommentInput{
+  position: relative;
+  
+  height: 180px;
+  background-color: #2B2F3D;
+  border-radius: 8px;
+  border: 1px solid #ffffff;
+    
+}
+.CommentInput textarea{
+    padding: 16px 12px;
+    border-radius: 8px;
+    border: #ffffff 1px solid;
+    flex: none;
+    
+    background: #2B2F3D;
+   
+    color:#FFFFFF;
+    font-size:16px;
+  
+    width: 1116px;
+    height:100px;
+
+    resize: none;
+    border:none;
+  }
+  .CommentInput textarea:focus{
+    outline:none;
+  }
+
+  
+  .CommentInput button{
+    position: absolute;
+
+    right:12px;
+    bottom:12px;
+    width: 99px;
+    height: 38px;
+
+  }
+
+  .CommentInput textarea::-webkit-scrollbar {
+    display: none;
+  }
+
+  .CommentInput textarea::placeholder {
+    color:#FFFFFF
+  }
+
+   
+    
+    
+   
+  
+  
+    
+    
+    
+
+
+   
+
+  
+  
+  
+  

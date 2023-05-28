@@ -1,0 +1,30 @@
+.Context::-webkit-scrollbar {
+  display: none;
+}
+
+.TextInput {
+  width: 100%;
+  min-height: var(--minheight);
+  height: var(--height);
+  padding: 16px;
+  margin: var(--margin);
+  font-size: var(--fontsize);
+  font-weight: var(--fontweight);
+  line-height: var(--lineheight);
+  background-color: var(--backgroundcolor);
+  white-space: normal;
+  resize: none;
+  overflow: inherit;
+  overflow-wrap: anywhere;
+  border: none;
+  color: #a7aaba;
+
+  box-sizing: border-box;
+  font-family: "San Francisco";
+}
+
+textarea::-webkit-input-placeholder {
+  color: #33333320;
+  font-weight: 700;
+  font-family: "San Francisco";
+}
