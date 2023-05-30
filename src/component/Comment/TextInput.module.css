@@ -1,30 +1,43 @@
-.Context::-webkit-scrollbar {
-  display: none;
+.TextContainer {
+  width: 100%;
+  position: relative;
+  display: flex;
+  height: auto;
 }
 
 .TextInput {
   width: 100%;
   min-height: var(--minheight);
   height: var(--height);
-  padding: 16px;
   margin: var(--margin);
   font-size: var(--fontsize);
   font-weight: var(--fontweight);
   line-height: var(--lineheight);
-  background-color: var(--backgroundcolor);
   white-space: normal;
   resize: none;
   overflow: inherit;
   overflow-wrap: anywhere;
   border: none;
-  color: #a7aaba;
-
-  box-sizing: border-box;
-  font-family: "San Francisco";
+  color: #ffffff;
 }
 
 textarea::-webkit-input-placeholder {
-  color: #33333320;
-  font-weight: 700;
-  font-family: "San Francisco";
+  color: #ffffff90;
+  font-weight: 500;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.Comment_Container {
+  width: 1160px;
+  height: auto;
+  display: flex;
+  padding: 12px;
+  flex-direction: column;
+  align-items: flex-end;
+  caret-color: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  border: 1px solid #ffffff60;
 }

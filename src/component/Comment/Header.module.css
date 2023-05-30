@@ -14,7 +14,7 @@
   display: flex;
   justify-content: space-between;
   padding: 12px;
-  width: 1320px;
+  width: calc(1320px - 24px);
 }
 
 .profWrapper {
@@ -23,8 +23,19 @@
   align-items: center;
   gap: 12px;
 }
+
 .profWrapper:hover {
   cursor: pointer;
+}
+
+.user {
+  width: 32px;
+  height: 32px;
+  background-image: var(--backimg);
+  background-color: #ededed;
+  border-radius: 9999px;
+  background-size: cover;
+  background-position: center;
 }
 
 .navWrapper {
@@ -37,7 +48,7 @@
 .navWrapper img {
   margin-right: 24px;
   width: 150px;
-  height: 49px;
+  height: auto;
 }
 
 .nav:hover {

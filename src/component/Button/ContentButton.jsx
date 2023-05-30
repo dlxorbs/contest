@@ -1,13 +1,17 @@
 import React from "react";
 import styles from "./ContentButton.module.css";
 
-function contentButton(props) {
+export default function ContentButton(props) {
   return (
     <button className={styles.contentButton} onClick={props.onClick}>
-      <img src="https://i.postimg.cc/YSV7tTmQ/text.png" />
-      {props.title || "Title"}
+      <span
+        className="material-symbols-outlined"
+        style={{ fontVariationSettings: `'wght' ${300}` }}
+      >
+        {props.icon}
+      </span>
+
+      {props.title || "title"}
     </button>
   );
 }
-
-export default contentButton;

@@ -5,23 +5,21 @@
   color: #ffffff;
 }
 
-.profile_image {
-  height: 240px;
-  width: 240px;
-  border-radius: 50%;
-}
-
-.profile_image_default {
+.profileImage {
   height: 240px;
   width: 240px;
   border-radius: 50%;
   background: #ededed;
+  background-image: var(--back);
+  background-size: cover;
+  background-position: 50%;
 }
 
 .ProfileInfo {
   font-size: 20px;
   padding-bottom: 12px;
 }
+
 /* ///////////////////////////////page부분 /////////////////////////////////////////////*/
 .profilePage {
 }
@@ -29,7 +27,7 @@
 .pfpageWrapper {
   background-color: #1e222d;
   color: #ffffff;
-
+  margin-top: 136px;
   display: flex;
   justify-content: center;
 }
@@ -37,13 +35,12 @@
 .pfpageContainer {
   display: flex;
   flex-direction: column;
-  width: 70%;
-  margin-top: 7%;
+  width: 1320px;
   gap: 30px;
 }
 
 .profileList {
-  width: 190px;
+  width: auto;
   height: 130px;
   display: flex;
   flex-direction: column;

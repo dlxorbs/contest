@@ -1,35 +1,59 @@
-.floatButton{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+.floatButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /*font-family: ;*/
+  font-size: 16px;
+  background-color: rgba(43, 47, 61, 0.9);
 
-        /*font-family: ;*/
-        font-size: 16px;
-        
-        cursor: pointer;
-        background-color: rgba(43, 47, 61, 0.9);
-        
-        border: none;
-        border-radius: 1000px;
-        
-        width: 64px;
-        height: 64px;
-        
-        position: absolute;
-        left: 10px;
-        top: 10px;
-        transition: 0.8s;
+  border: none;
+  border-radius: 1000px;
 
+  width: 64px;
+  height: 64px;
+
+  position: relative;
+  /* left: 10px;
+  top: 10px; */
+
+  overflow: hidden;
+  color: #667eea;
 }
 
-.floatButton:hover{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    /*content: url(https://i.postimg.cc/dV1XxLZ0/Arrow-forward2-48px.png);*/
-    background-color: #667EEA;
-    transition: 0.8s;
+.floatButton > span {
+  position: absolute;
+  z-index: 9999;
+}
 
+.floatButton:hover span {
+  color: #fff;
+  transition: 0.4s;
+}
+
+.floatButton:hover {
+  transition-delay: 0.6s;
+  background-color: #667eea;
+}
+
+.floatButton:hover .floatani {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 9999px;
+  background-color: #fff;
+  animation-duration: 0.8s;
+  animation-name: scaled;
+  bottom: -100px;
+}
+
+@keyframes scaled {
+  0% {
+    transform: scale(0.5);
+    background-color: rgba(43, 47, 61, 0.9);
+  }
+  100% {
+    transform: scale(3.5);
+    background-color: #667eea;
+  }
 }

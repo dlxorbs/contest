@@ -39,3 +39,12 @@ ul li {
   padding: 10px 0px 10px 32px;
   font-size: 16px;
 }
+
+.display {
+  display: block !important;
+  transition: 0.5s;
+}
+
+.innerCategory {
+  display: none;
+}

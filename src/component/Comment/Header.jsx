@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Header.module.css";
-import logo from "../images/logo.png";
 
 function Nav(props) {
   return (
@@ -15,9 +14,10 @@ function UserProfile(props) {
     <div className={styles.profWrapper} onClick={props.onClick}>
       <div>{props.UserID || "UserID"}</div>
       <div>{props.UserName || "UserName"}</div>
-      <div>
-        <img src={props.userImage}></img>
-      </div>
+      <div
+        className={styles.user}
+        style={{ "--back": "url(" + props.src + ")" }}
+      ></div>
     </div>
   );
 }
@@ -27,7 +27,11 @@ function Header(props) {
     <div className={styles.headerWrapper}>
       <div className={styles.headerContainer}>
         <div className={styles.navWrapper}>
-          <img src={logo}></img>
+          <img
+            src={
+              "https://www.tukorea.ac.kr/sites/en/images/common/logo_footer.png"
+            }
+          ></img>
           <Nav
             title="진행중인 콘테스트"
             onClick={function () {

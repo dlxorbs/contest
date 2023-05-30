@@ -5,8 +5,7 @@ function ProfInfo(props) {
   const Space = { marginLeft: "24px" };
   return (
     <div className={styles.profileInfo}>
-      {props.infotext}:<span style={Space} />
-      {props.text}
+      {props.infotext}:<span style={Space}> {props.text}</span>
     </div>
   );
 }
@@ -30,14 +29,14 @@ function Profile(props) {
     );
   });
   return (
-    <div className={styles.profile}>    
-      {props.profileImage ? (
-        <div className={styles.profile_image}>
-          <img src={props.profileImage} alt="Profile" />
-        </div>
-      ) : (
-        <div className={styles.profile_image_default}></div>
-      )}
+    <div className={styles.profile}>
+      <div
+        className={styles.profileImage}
+        style={{
+          "--back": "url(" + props.src + ")",
+        }}
+      ></div>
+
       <div className={styles.profileList}>{list}</div>
     </div>
   );

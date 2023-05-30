@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./FloatButton.module.css";
 
-function floatButton(props) {
+function FloatButton(props) {
   return (
     <button className={styles.floatButton} onClick={props.onClick}>
-      <span class="material-symbols-outlined">{props.icon}</span>
+      <span className="material-symbols-outlined">{props.icon}</span>
+      <div className={styles.floatani}></div>
     </button>
   );
 }
 
-export default floatButton;
+export default FloatButton;

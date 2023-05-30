@@ -1,31 +1,23 @@
 import React, { useState } from "react";
 import styles from "./Lnb.module.css";
-import $ from "jquery";
 
 export default function Category(props) {
   const [clickedIndex, setClickedIndex] = useState(-1);
   const [clickedsecIndex, setClickedsecIndex] = useState(-1);
 
-  const handleClick = (index) => {
-    setClickedIndex(index); // 클릭한 항목의 인덱스로 선택 상태 변경
-  };
-
-  const sechandleClick = (index) => {
-    setClickedsecIndex(index); // 클릭한 개별 리스트의 인덱스로 선택 상태 변경
-  };
-
   const list = props.data.map((item, index) => {
-    const isClicked = clickedIndex === index;
-    const categoryClassName = isClicked ? styles.clicked : "";
+    const categoryClassName = clickedIndex === index ? styles.clicked : "";
+    const display = clickedIndex === index ? styles.display : "";
+    const lists = item.secondary.map((items, index2) => {
+      // 선택된 개별 리스트에 대해 bold 클래스 적용
+      const bold = clickedsecIndex === index2 ? styles.bold : "";
 
-    const lists = item.Info.map((items, index2) => {
-      const bold = clickedsecIndex === index2 ? styles.bold : ""; // 선택된 개별 리스트에 대해 bold 클래스 적용
+      console.log(bold);
       return (
         <li
-          className={bold}
+          className={` ${bold}`}
           onClick={(e) => {
-            console.log(index2);
-            sechandleClick(index2);
+            setClickedsecIndex(index2);
           }}
         >
           {items}
@@ -38,13 +30,12 @@ export default function Category(props) {
         <li
           className={categoryClassName}
           onClick={(e) => {
-            console.log(index);
-            handleClick(index); // 클릭한 항목의 인덱스를 전달
+            setClickedIndex(index);
           }}
         >
           {item.title}
         </li>
-        <div className={styles.innerCategory}>
+        <div className={`${display} ${styles.innerCategory}`}>
           <ul>{lists}</ul>
         </div>
       </div>

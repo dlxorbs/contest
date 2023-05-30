@@ -1,0 +1,58 @@
+input[type="radio"]:checked + .tabbtn {
+  outline: none;
+  color: #fff;
+  background-color: #516df6;
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.tabs {
+  color: #fff;
+}
+.tabbtn {
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background-color: #4a4d5e;
+}
+
+.tabbtn:hover {
+  background-color: #667eea;
+  transition: 0.35s;
+}
+
+.Chips {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chipbtn {
+  box-sizing: border-box;
+  padding: 10px 35px;
+  background-color: transparent;
+  border: 1px solid #83858f;
+  border-radius: 4px;
+  color: #83858f;
+
+  /* 드래그 막기 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked + .chipbtn {
+  background-color: #516df6;
+  border: 1px solid #516df6;
+  color: #ffffff;
+}

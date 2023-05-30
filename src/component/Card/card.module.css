@@ -13,9 +13,6 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  background-image: var(--back);
-  background-position: center;
-  background-size: cover;
 }
 
 .bottomOverlay {
@@ -26,8 +23,6 @@
 
   display: flex;
   align-items: flex-end;
-
-  transition: ease 0.3s;
 
   color: #fff;
 }
@@ -40,12 +35,49 @@
   display: none;
   width: calc(100% - 32px);
   padding: 18px 16px;
-
+  text-align: left;
   text-overflow: ellipsis;
-
   font-size: 16px;
 }
 
 .bottomOverlay:hover > span {
   display: block;
+}
+.studentinfo {
+  display: var(--display);
+}
+
+.nametag {
+  width: calc(315px - 32px);
+  color: #fff;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.iconsContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.iconsContainer > span {
+  font-size: 16px;
+}
+
+.iconsContainer > p {
+  margin: 0;
+  font-size: 16px;
+  height: 100%;
+}
+.blue {
+  color: #667eea !important;
+}
+
+.card {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
 }

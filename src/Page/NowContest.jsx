@@ -6,11 +6,11 @@ export default function NowContest(props) {
   const category = [
     {
       title: "진행중인 경진대회",
-      Info: ["2023과제 경진대회", "2023포트폴리오 경진대회"],
+      secondary: ["2023과제 경진대회", "2023포트폴리오 경진대회"],
     },
-    { title: "진행중인 공모전", Info: ["로고 공모전"] },
-    { title: "투표중인 경진대회", Info: [] },
-    { title: "투표중인 경진대회", Info: [] },
+    { title: "진행중인 공모전", secondary: ["로고 공모전"] },
+    { title: "투표중인 경진대회", secondary: [] },
+    { title: "투표중인 경진대회", secondary: [] },
   ];
 
   return <Category data={category} />;
