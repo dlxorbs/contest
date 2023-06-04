@@ -5,7 +5,7 @@
   align-items: center;
   /*font-family: ;*/
   font-size: 16px;
-  background-color: rgba(43, 47, 61, 0.9);
+  background-color: var(--FB);
 
   border: none;
   border-radius: 1000px;
@@ -18,7 +18,7 @@
   top: 10px; */
 
   overflow: hidden;
-  color: #667eea;
+  color: var(--P2);
 }
 
 .floatButton > span {
@@ -27,13 +27,13 @@
 }
 
 .floatButton:hover span {
-  color: #fff;
+  color: var(--G1);
   transition: 0.4s;
 }
 
 .floatButton:hover {
   transition-delay: 0.6s;
-  background-color: #667eea;
+  background-color: var(--P2);
 }
 
 .floatButton:hover .floatani {
@@ -41,7 +41,7 @@
   width: 90px;
   height: 90px;
   border-radius: 9999px;
-  background-color: #fff;
+  background-color: var(--G1);
   animation-duration: 0.8s;
   animation-name: scaled;
   bottom: -100px;
@@ -50,10 +50,10 @@
 @keyframes scaled {
   0% {
     transform: scale(0.5);
-    background-color: rgba(43, 47, 61, 0.9);
+    background-color: var(--FB);
   }
   100% {
     transform: scale(3.5);
-    background-color: #667eea;
+    background-color: var(--P2);
   }
 }

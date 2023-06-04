@@ -10,16 +10,16 @@
   font-size: 12px;
 
   cursor: pointer;
-  color: #fff;
-  background-color: #2b2f3d;
+  color: var(--G1);
+  background-color: var(--G8);
 
-  border: 1px solid #4a4d5e;
+  border: 1px solid var(--G7);
 
   width: 158px;
   height: 83px;
 }
 
 .contentButton:hover {
-  background-color: #667eea;
+  background-color: var(--P2);
   transition: 0.8s;
 }

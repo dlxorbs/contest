@@ -18,18 +18,14 @@ export default function ArchivePage(props) {
 
   const major = ["미디어디자인공학", "산업디자인공학"];
 
-  const grade = ["1학년","2학년","3학년","4학년" ];
+  const grade = ["1학년", "2학년", "3학년", "4학년"];
 
-
-
-
-  
   return (
     <div className={styles.page_Wrapper}>
       <div className={styles.filterContainer}>
-        <ChipFilter data={major} name={"major"} />
-        <ChipFilter data={year} name={"year"} />
-        <ChipFilter data={grade} name={"grade"} />
+        <ChipFilter title={"전공"} data={major} name={"major"} />
+        <ChipFilter title={"연도"} data={year} name={"year"} />
+        <ChipFilter title={"학년"} data={grade} name={"grade"} />
       </div>
       <div className={styles.InnerContainer}>
         <div className={styles.navCon}>

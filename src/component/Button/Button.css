@@ -11,21 +11,21 @@
   /*font-family: ;*/
   font-size: 16px;
   cursor: pointer;
-  color: #fff;
+  color: var(--G1);
 
-  background-color: #516df6;
+  background-color: var(--P1);
   border: none;
   border-radius: 8px;
 }
 
 .btn:hover {
-  background-color: #667eea;
+  background-color: var(--P2);
 }
 
 .btn:disabled {
-  background-color: #4a4d5e;
-  color: #fff;
-  background-color: #4a4d5e;
+  background-color: var(--G7);
+  color: var(--G1);
+  background-color: var(--G7);
 }
 
 /*.round*/
@@ -49,18 +49,18 @@
 /*.line*/
 .line {
   cursor: pointer;
-  color: #516df6;
+  color: var(--P1);
   background-color: transparent !important;
-  border: 2px solid #516df6;
+  border: 2px solid var(--P1);
   border-radius: 8px;
 }
 
 .line:hover {
-  color: #667eea;
-  border: 2px solid #667eea;
+  color: var(--P2);
+  border: 2px solid var(--P2);
 }
 
 .line:disabled {
-  color: #fff;
-  border: 2px solid #fff;
+  color: var(--G1);
+  border: 2px solid var(--G1);
 }

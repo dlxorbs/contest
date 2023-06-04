@@ -12,3 +12,50 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+:root {
+  /*accent*/
+  --P1: #516df6;
+  --P2: #667eea;
+  --tertiary: #ff7171;
+
+  /*grayscale*/
+  --G9: #1e2029;
+  --G8: #2b2f3d;
+  --G7: #4a4d5e;
+  --G6: #83858f;
+  --G5: #bcbcc2;
+  --G4: #d9d9d9;
+  --G3: #eaeaea;
+  --G2: #f4f4f4;
+  --G1: #ffffff;
+
+  /*gradient bg*/
+  --grad1: linear-gradient(
+    271.53deg,
+    rgba(52, 55, 72, 0.6) 0.22%,
+    rgba(84, 90, 106, 0.6) 100%
+  ); /*Category Clicked*/
+  --grad2: linear-gradient(
+    271.53deg,
+    rgba(52, 55, 72, 0.6) 0.22%,
+    rgba(84, 90, 106, 0.6) 100%
+  ); /*AnnounceHead bg*/
+  --grad3: linear-gradient(
+    180deg,
+    rgba(20, 20, 21, 0) 0%,
+    #14141580 80%
+  ); /*Card Hover*/
+
+  /*Semantic (information, success, caution, error)*/
+  --sem-bl: #516df6;
+  --sem-gr: #33d486;
+  --sem-yl: #ffc73c;
+  --sem-rd: #ff5c46;
+
+  /*FloatButton.module.css*/
+  --FB: rgba(43, 47, 61, 0.9);
+
+  /*TextInput.module.css*/
+  --TI: rgba(255, 255, 255, 0.8);
+}

@@ -56,6 +56,7 @@ export default function ChipFilter(props) {
 
   return (
     <div className={styles.chiplists}>
+      <span> {props.title}</span>
       <Chips
         checked={chipclicked}
         text={"전체"}

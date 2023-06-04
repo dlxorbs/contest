@@ -19,3 +19,8 @@
   width: 315px;
   height: 100%;
 }
+.filterContainer {
+  width: calc(100% - 20px);
+  padding: 25px 20px;
+  border: 1px solid var(--g6);
+}
