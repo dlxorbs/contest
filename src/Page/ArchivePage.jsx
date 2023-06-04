@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Category from "../component/LNB/Categoty";
 import ChipFilter from "../component/Input/ChipFilter";
 import styles from "./Page.module.css";
+import { db } from "../firebase";
+import CardList from "../component/Card/CardList";
 export default function ArchivePage(props) {
   // 이거는 각 페이지마다 정보가 다르게 들어갈 수 있도록 제작해야됨
+  const [data, setData] = useState([]);
+
+  useEffect(function () {
+    let Datas = [];
+    db.collection("Archive")
+      .get()
+      .then(function (qs) {
+        qs.forEach((doc) => {
+          Datas.push(doc.data());
+        });
+        setData(Datas);
+      });
+  }, []);
+
+  console.log(data);
+
   const category = [
     {
       title: "경진대회 아카이빙",
@@ -30,6 +48,7 @@ export default function ArchivePage(props) {
         <div className={styles.navCon}>
           <Category data={category} />
         </div>
+        <CardList data={data} type={"Archive"} />
       </div>
     </div>
   );

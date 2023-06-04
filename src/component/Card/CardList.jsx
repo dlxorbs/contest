@@ -1,19 +1,20 @@
 import React from "react";
 import Card from "./Card";
-export default function Card(props) {
-  return (
-    <div className={styles.card}>
-      <CardThumb
-        thumbnail={"http://2022.tudesign.org/works/26/thumbnail.jpg"}
-        title={"asd"}
+import styles from "./card.module.css";
+
+export default function CardList(props) {
+  const list = props.data.map((item) => {
+    return (
+      <Card
+        key={item.id}
+        thumbnail={item.thumbnail}
+        title={item.title}
+        type={props.type}
+        major={item.major}
+        studentinfo={item.studentinfo}
       />
-      {props.type === "Archive" && (
-        <NameTag major={props.major} studentinfo={props.studentinfo} />
-      )}
-      {props.type === "Vote" && (
-        <Button className={"round"} title={"투표하기"} />
-      )}
-      {props.type === "Now" && <NameTag major={props.major} display={"none"} />}
-    </div>
-  );
+    );
+  });
+
+  return <div className={styles.cardList}>{list}</div>;
 }
