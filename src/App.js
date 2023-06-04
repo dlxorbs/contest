@@ -17,12 +17,15 @@ import TextInput from "./component/Comment/TextInput";
 import NameTag from "./component/Card/NameTag";
 import Card from "./component/Card/Card";
 import ContentButton from "./component/Button/ContentButton";
+import ChipFilter from "./component/Input/ChipFilter";
+import ArchivePage from "./Page/ArchivePage";
 function App() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   return (
     <div className="App">
+      <ArchivePage></ArchivePage>
       {/* <Button disabled={false}></Button>
 
       <Button className={"round"} disabled={false}></Button>
@@ -32,7 +35,7 @@ function App() {
       <Button className={"large"} disabled={false}></Button>
 
       <Button className={"line"} disabled={false}></Button> */}
-
+      {/* 
       <ProfilePage></ProfilePage>
 
       <Header></Header>
@@ -57,10 +60,10 @@ function App() {
 
       <ContentButton icon={"Folder"}></ContentButton>
 
-      <ContentButton icon={"smart_display"}></ContentButton>
+      <ContentButton icon={"smart_display"}></ContentButton> */}
 
       {/* <ProfilePage /> */}
-
+      {/* 
       <Card type={"Vote"}></Card>
 
       <Card
@@ -81,7 +84,7 @@ function App() {
 
       <Chips text={"check"} name={"grade"}></Chips>
 
-      <Chips text={"check"} name={"grade"}></Chips>
+      <Chips text={"check"} name={"grade"}></Chips> */}
 
       {/* <TextInput
         height={44}
@@ -112,8 +115,11 @@ function App() {
           e.target.style.height = e.target.scrollHeight + "px";
         }}
       />
-
+        
       <CommentInput></CommentInput> */}
+{/* 
+      <ChipFilter data={major} name={"major"} />
+      <ChipFilter data={year} name={"year"} /> */}
     </div>
   );
 }

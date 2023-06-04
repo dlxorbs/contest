@@ -1,15 +1,21 @@
 .cateCon {
   width: calc(315px - 40px);
   position: sticky;
-  top: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  top: 95px;
   margin: 0;
   list-style: none;
-  padding: 0px 20px 16px;
+  padding: 20px 20px 16px;
   background-color: #1e222d;
   color: #fff;
 }
-
 .categoryWrapper {
+}
+.categoryWrapper > li:hover {
+  background-color: #323644;
+  transition: 0.2s;
 }
 
 .categoryWrapper > li {
