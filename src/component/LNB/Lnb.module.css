@@ -7,14 +7,14 @@
   top: 95px;
   margin: 0;
   list-style: none;
-  padding: 20px 20px 16px;
+  padding: 0 20px;
   background-color: #1e222d;
-  color: #fff;
+  color: var(--G1);
 }
 .categoryWrapper {
 }
 .categoryWrapper > li:hover {
-  background-color: #323644;
+  background-color: var(--G10);
   transition: 0.2s;
 }
 
@@ -27,10 +27,11 @@
 }
 
 .clicked {
-  background-color: #323644;
+  background-color: var(--G10);
 }
 .bold {
   font-weight: 700;
+  color: #ffffff !important;
 }
 ul {
   padding: 0;
@@ -44,10 +45,12 @@ ul li {
   list-style: none;
   padding: 10px 0px 10px 32px;
   font-size: 16px;
+  color: #ffffff90;
 }
 
 .display {
   display: block !important;
+
   transition: 0.5s;
 }
 

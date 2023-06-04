@@ -38,6 +38,7 @@ input[type="radio"] {
   border: 1px solid var(--G6);
   border-radius: 4px;
   color: var(--G6);
+  font-size: 14px;
 
   /* 드래그 막기 */
   -webkit-user-select: none;
@@ -60,4 +61,11 @@ input[type="checkbox"]:checked + .chipbtn {
 .chiplists {
   display: flex;
   gap: 16px;
+}
+
+.chiplists > span {
+  color: var(--G1);
+  padding: 10px 35px;
+  text-align: center;
+  align-items: center;
 }

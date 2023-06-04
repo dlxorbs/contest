@@ -25,6 +25,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header></Header>
       <ArchivePage></ArchivePage>
       {/* <Button disabled={false}></Button>
 
@@ -117,7 +118,7 @@ function App() {
       />
         
       <CommentInput></CommentInput> */}
-{/* 
+      {/* 
       <ChipFilter data={major} name={"major"} />
       <ChipFilter data={year} name={"year"} /> */}
     </div>
