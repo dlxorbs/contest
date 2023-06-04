@@ -7,10 +7,7 @@ import styles from "./card.module.css";
 export default function Card(props) {
   return (
     <div className={styles.card}>
-      <CardThumb
-        thumbnail={"http://2022.tudesign.org/works/26/thumbnail.jpg"}
-        title={"asd"}
-      />
+      <CardThumb thumbnail={props.thumbnail} title={props.title} />
       {props.type === "Archive" && (
         <NameTag major={props.major} studentinfo={props.studentinfo} />
       )}

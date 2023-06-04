@@ -6,6 +6,7 @@ import styles from "./Input.module.css";
 export default function ChipFilter(props) {
   const [chipclicked, setChipClicked] = useState(true);
   const [checkedItems, setCheckedItems] = useState([]);
+
   const clickeve = function (e) {
     if (e.target.checked == true) {
       setCheckedItems({});
@@ -13,7 +14,6 @@ export default function ChipFilter(props) {
   };
   useEffect(() => {
     // 여기에 필터 넣어야됨
-    console.log(checkedItems);
 
     // 객체의 키값의 value를 찾아내고 그 value가 true가 하나도 없을 경우에 전체를 클릭할 수 잇도록 제작
     const find = Object.keys(checkedItems).find(
@@ -23,7 +23,15 @@ export default function ChipFilter(props) {
     if (find == undefined) {
       setChipClicked(true);
     }
-    console.log(find);
+    // 객체의 키값의 value를 찾아내고 어레이형태로 배출
+    const filter = Object.keys(checkedItems).filter(
+      (key) => checkedItems[key] == true
+    );
+
+    //정렬된 필터를 업로드 할 수 있는 함수를 제작하여 부모 컴포넌트로 전송
+    props.updateFilter(filter);
+
+    // console.log(data);
     // console.log(checkedItems);
   }, [checkedItems]);
 
@@ -43,12 +51,9 @@ export default function ChipFilter(props) {
         value={item}
         checked={checkedItems[item]}
         onChange={(e) => {
-          console.log(e.target.checked);
+          // console.log(e.target.checked);
           setChipClicked(false);
           handleCheckboxChange(item);
-          if (checkedItems[item] != true) {
-            console.log("a");
-          }
         }}
       ></Chips>
     );
@@ -65,7 +70,7 @@ export default function ChipFilter(props) {
         onChange={(e) => {
           setChipClicked(!chipclicked);
           clickeve(e);
-          console.log(e.target.checked);
+          // console.log(e.target.checked);
         }}
       />
       {list}

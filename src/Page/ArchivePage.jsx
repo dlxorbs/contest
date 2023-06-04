@@ -7,10 +7,11 @@ import CardList from "../component/Card/CardList";
 export default function ArchivePage(props) {
   // 이거는 각 페이지마다 정보가 다르게 들어갈 수 있도록 제작해야됨
   const [data, setData] = useState([]);
+  const [datalist, setDatalist] = useState([]);
   // firebase 데이터 가져오기
   useEffect(function () {
     let Datas = [];
-    db.collection("Archieve")
+    db.collection("Archive")
       .get()
       .then(function (qs) {
         qs.forEach((doc) => {
@@ -19,8 +20,15 @@ export default function ArchivePage(props) {
 
         setData(Datas);
       });
-    console.log(Datas);
+    // console.log(Datas);
   }, []);
+
+  const updateFilter = (filterdata) => {
+    setDatalist(filterdata);
+  };
+  useEffect(() => {
+    console.log(datalist);
+  });
 
   const category = [
     {
@@ -40,9 +48,24 @@ export default function ArchivePage(props) {
     <div className={styles.page_Wrapper}>
       <h3>콘테스트 아카이빙</h3>
       <div className={styles.filterContainer}>
-        <ChipFilter title={"전공"} data={major} name={"major"} />
-        <ChipFilter title={"연도"} data={year} name={"year"} />
-        <ChipFilter title={"학년"} data={grade} name={"grade"} />
+        <ChipFilter
+          updateFilter={updateFilter}
+          title={"전공"}
+          data={major}
+          name={"major"}
+        />
+        <ChipFilter
+          updateFilter={updateFilter}
+          title={"연도"}
+          data={year}
+          name={"year"}
+        />
+        <ChipFilter
+          updateFilter={updateFilter}
+          title={"학년"}
+          data={grade}
+          name={"grade"}
+        />
       </div>
       <div className={styles.InnerContainer}>
         <div className={styles.navCon}>

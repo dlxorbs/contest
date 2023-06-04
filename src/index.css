@@ -1,3 +1,14 @@
+* ::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--G10);
+}
+
+* ::-webkit-scrollbar-thumb {
+  width: 8px;
+  background-color: var(--G7);
+  border-radius: 99px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -20,7 +31,8 @@ code {
   --tertiary: #ff7171;
 
   /*grayscale*/
-  --G10 : #323644;
+
+  --G10: #323644;
   --G9: #1e2029;
   --G8: #2b2f3d;
   --G7: #4a4d5e;
