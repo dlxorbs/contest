@@ -2,25 +2,25 @@ import React, { useState, useEffect } from "react";
 import Category from "../component/LNB/Categoty";
 import ChipFilter from "../component/Input/ChipFilter";
 import styles from "./Page.module.css";
-import { db } from "../firebase";
+import { db } from "../firebase.js";
 import CardList from "../component/Card/CardList";
 export default function ArchivePage(props) {
   // 이거는 각 페이지마다 정보가 다르게 들어갈 수 있도록 제작해야됨
   const [data, setData] = useState([]);
-
+  // firebase 데이터 가져오기
   useEffect(function () {
     let Datas = [];
-    db.collection("Archive")
+    db.collection("Archieve")
       .get()
       .then(function (qs) {
         qs.forEach((doc) => {
           Datas.push(doc.data());
         });
+
         setData(Datas);
       });
+    console.log(Datas);
   }, []);
-
-  console.log(data);
 
   const category = [
     {
