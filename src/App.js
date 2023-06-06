@@ -1,23 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { useState, useRef, useEffect } from "react";
-import lnb from "./component/LNB/Categoty";
-import Button from "./component/Button/Button";
-import CardThumb from "./component/Card/CardThumb";
-import Profile from "./component/Comment/Profile";
-import ProfilePage from "./component/Comment/ProfilePage";
-import Category from "./component/LNB/Categoty";
+
 import NowContest from "./Page/NowContest";
 import Header from "./component/Comment/Header";
-import Chips from "./component/Input/Chips";
-import Tab from "./component/Input/Tab";
-import FloatButton from "./component/Button/FloatButton";
-import CommentInput from "./component/Comment/CommentInput";
-import TextInput from "./component/Comment/TextInput";
-import NameTag from "./component/Card/NameTag";
-import Card from "./component/Card/Card";
-import ContentButton from "./component/Button/ContentButton";
-import ChipFilter from "./component/Input/ChipFilter";
 import ArchivePage from "./Page/ArchivePage";
 function App() {
   const [title, setTitle] = useState("");
@@ -26,7 +12,8 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <ArchivePage></ArchivePage>
+      {/* <ArchivePage></ArchivePage> */}
+      <NowContest></NowContest>
       {/* <Button disabled={false}></Button>
 
       <Button className={"round"} disabled={false}></Button>
@@ -62,7 +49,6 @@ function App() {
       <ContentButton icon={"Folder"}></ContentButton>
 
       <ContentButton icon={"smart_display"}></ContentButton> */}
-
       {/* <ProfilePage /> */}
       {/* 
       <Card type={"Vote"}></Card>
@@ -86,7 +72,6 @@ function App() {
       <Chips text={"check"} name={"grade"}></Chips>
 
       <Chips text={"check"} name={"grade"}></Chips> */}
-
       {/* <TextInput
         height={44}
         minheight={116}

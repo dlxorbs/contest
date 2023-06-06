@@ -30,6 +30,7 @@ export default function ChipFilter(props) {
 
     //정렬된 필터를 업로드 할 수 있는 함수를 제작하여 부모 컴포넌트로 전송
     props.updateFilter(filter);
+    console.log(filter);
 
     // console.log(data);
     // console.log(checkedItems);

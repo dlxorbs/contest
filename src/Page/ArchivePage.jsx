@@ -6,30 +6,13 @@ import { db } from "../firebase.js";
 import CardList from "../component/Card/CardList";
 export default function ArchivePage(props) {
   // 이거는 각 페이지마다 정보가 다르게 들어갈 수 있도록 제작해야됨
-  const [data, setData] = useState([]);
-  const [datalist, setDatalist] = useState([]);
-  // firebase 데이터 가져오기
-  useEffect(function () {
-    let Datas = [];
-    db.collection("Archive")
-      .get()
-      .then(function (qs) {
-        qs.forEach((doc) => {
-          Datas.push(doc.data());
-        });
 
-        setData(Datas);
-      });
-    // console.log(Datas);
-  }, []);
+  const [data, setData] = useState([]); // 기본 데이터 지정
+  const [datalist, setDatalist] = useState([]); // Chipfilter에서 받아온 데이터 가져오기
+  const [filtered, setFiltered] = useState([]); // data에서 기반으로 필터링하기
+  const [nodata, setNodata] = useState(false); // 데이터가 있는지 없는지에 대해 판별하기 위한 T/F
 
-  const updateFilter = (filterdata) => {
-    setDatalist(filterdata);
-  };
-  useEffect(() => {
-    console.log(datalist);
-  });
-
+  //사용되는 데이터 지정 LNB , Filter
   const category = [
     {
       title: "경진대회 아카이빙",
@@ -42,7 +25,47 @@ export default function ArchivePage(props) {
 
   const major = ["미디어디자인공학", "산업디자인공학"];
 
-  const grade = ["1학년", "2학년", "3학년", "4학년"];
+  const grade = ["1", "2", "3", "4"];
+
+  // firebase 데이터 가져오기
+  useEffect(function () {
+    let Datas = [];
+    db.collection("Archive")
+      .get()
+      .then(function (qs) {
+        qs.forEach((doc) => {
+          Datas.push(doc.data());
+        });
+
+        setData(Datas);
+        setFiltered(Datas);
+      });
+    // console.log(Datas);
+  }, []);
+
+  const updateFilter = (filterdata) => {
+    setDatalist(filterdata);
+  };
+  useEffect(() => {
+    console.log(datalist);
+
+    if (datalist.length != 0) {
+      const filtering = data.filter((obj) => {
+        const finding = Object.values(obj).some((value) =>
+          datalist.includes(value)
+        );
+        console.log(finding);
+        if (finding === false) {
+          setNodata(true);
+          console.log(nodata);
+        }
+        return finding;
+      });
+      setFiltered(filtering);
+    } else {
+      setFiltered(data);
+    }
+  }, [datalist]);
 
   return (
     <div className={styles.page_Wrapper}>
@@ -71,7 +94,8 @@ export default function ArchivePage(props) {
         <div className={styles.navCon}>
           <Category data={category} />
         </div>
-        <CardList data={data} type={"Archive"} />
+        <CardList data={filtered} type={"Archive"} />
+        {nodata && <div> 아무것도 없어용 </div>}
       </div>
     </div>
   );

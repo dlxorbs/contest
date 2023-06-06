@@ -1,0 +1,172 @@
+.noticeBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  width: 100%;
+  height: 140px;
+
+  box-sizing: border-box;
+  background-color: #2b2f3d;
+  border: 1px solid #4a4d5e;
+  border-radius: 8px;
+}
+
+.stickyNoticebox {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 160px;
+  background-color: #2b2f3d;
+  border: 1px solid #4a4d5e;
+  border-radius: 8px;
+}
+
+.Btncon {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.noticeImage {
+  width: 160px;
+  height: 140px;
+  left: 0px;
+  top: 0px;
+  border-radius: 8px;
+
+  background: #4a4d5e;
+  background-image: var(--back);
+  background-size: cover;
+}
+
+.titleBox {
+  min-width: var(--minwidth);
+  padding: var(--padding);
+  color: #fff;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tagcon {
+  display: flex;
+  flex-direction: row;
+}
+
+.tag {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+
+  width: auto;
+  height: auto;
+
+  padding: 2px 20px;
+  font-weight: 600;
+  font-size: 12px;
+}
+.default {
+  background: var(--P1);
+  color: var(--G1);
+  border-radius: 100px;
+}
+
+.disabled {
+  background: #b1b4ba;
+  color: var(--G1);
+  border-radius: 100px;
+}
+
+.contnetBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 340px;
+  border-left: 1px solid #4a4d5e;
+}
+
+.noticeList {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+  gap: 50px;
+
+  color: #b1b4ba;
+}
+
+.noticeInfoList {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #b1b4ba;
+}
+
+.noticeData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.noticeInfoData {
+  display: flex;
+  width: auto;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.infotext {
+  display: flex;
+  text-align: center;
+  vertical-align: middle;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 150%;
+  color: #b1b4ba;
+}
+
+.noticeInfoText {
+  width: auto;
+  font-weight: 700;
+  line-height: 150%;
+  color: #b1b4ba;
+}
+
+.text {
+  display: flex;
+  text-align: center;
+
+  padding-top: 12px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #ffffff;
+}
+
+.noticeText {
+  display: flex;
+  text-align: center;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #ffffff;
+}
