@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import $ from "jquery";
 import Category from "../component/LNB/Categoty";
 import styles from "./Page.module.css";
@@ -8,9 +8,9 @@ import CardList from "../component/Card/CardList";
 import Notice from "../component/Notice/Notice";
 
 export default function NowContest(props) {
-  // 이거는 각 페이지마다 정보가 다르게 들어갈 수 있도록 제작해야됨
-  const [data, setData] = useState([]); // 기본 데이터 지정
+  const [data, setData] = useState([]);
   const [dataform, setDataform] = useState([dummy[0]]);
+  const [scrolled, setScrolled] = useState("");
   const category = [
     {
       title: "진행중인 경진대회",
@@ -22,7 +22,7 @@ export default function NowContest(props) {
   ];
 
   // firebase 데이터 가져오기
-  useEffect(function () {
+  useEffect(() => {
     let Datas = [];
     db.collection("Now")
       .get()
@@ -33,17 +33,6 @@ export default function NowContest(props) {
 
         setData(Datas);
       });
-  }, []);
-
-  useEffect(() => {
-    $(window).on("scroll", function () {
-      const scrollPos = $(window).scrollTop();
-      console.log(dataform);
-      console.log(scrollPos);
-      if (scrollPos > 100) {
-      } else {
-      }
-    });
   }, []);
 
   const list = dataform.map((item) => {
@@ -64,16 +53,9 @@ export default function NowContest(props) {
   return (
     <div className={styles.page_Wrapper}>
       <h3>진행중인 경진대회</h3>
-      {/* <Notice
-        type={"notice"}
-        Target={"나"}
-        Period={" rlrks"}
-        Prgress={"asdasd"}
-      ></Notice> */}
-
       <div className={styles.InnerContainer}>
         <div className={styles.navCon}>
-          <Category data={category} />
+          <Category data={category} className={scrolled} />
         </div>
         <div className={styles.CardCon}>
           {list}

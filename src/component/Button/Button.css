@@ -94,3 +94,7 @@
     background-color: var(--P2);
   }
 }
+
+.line:hover .floatani {
+  animation: none;
+}

@@ -28,18 +28,6 @@ export default function NoticePage(props) {
   //       });
   //   }, []);
 
-  useEffect(() => {
-    $(window).on("scroll", function () {
-      const scrollPos = $(window).scrollTop();
-      console.log(scrollPos);
-      if (scrollPos > 100) {
-        $("stickyNoticeBox").addClass("scrolled");
-      } else {
-        $("stickyNoticeBox").removeClass("scrolled");
-      }
-    });
-  }, []);
-
   return (
     <div className={styles.page_Wrapper}>
       <h3>공지사항</h3>

@@ -18,11 +18,5 @@ export default function NoticeList(props) {
     );
   });
 
-  return (
-    <div
-      className={styles.noticeContainer}
-    >
-      {list}
-    </div>
-  );
+  return <div className={styles.noticeContainer}>{list}</div>;
 }

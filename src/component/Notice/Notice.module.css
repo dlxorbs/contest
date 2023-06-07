@@ -23,11 +23,7 @@
   background-color: #2b2f3d;
   border: 1px solid #4a4d5e;
   border-radius: 8px;
-}
-
-.scrolled {
-  background-color: #1e222d;
-  border: none;
+  transition: 0.8s;
 }
 
 .Btncon {
@@ -185,4 +181,18 @@
   flex-direction: column;
   width: auto;
   gap: 24px;
+}
+
+.scrolled {
+  background-color: #1e222d;
+  border: none;
+  border-radius: 0px;
+  transition: 0.8s;
+}
+
+.change {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: 0.8s;
 }
