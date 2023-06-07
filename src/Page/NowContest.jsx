@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import $ from "jquery";
 import Category from "../component/LNB/Categoty";
 import styles from "./Page.module.css";
 import { db } from "../firebase.js";
@@ -30,6 +31,18 @@ export default function NowContest(props) {
 
         setData(Datas);
       });
+  }, []);
+
+  useEffect(() => {
+    $(window).on("scroll", function () {
+      const scrollPos = $(window).scrollTop();
+      console.log(scrollPos);
+      if (scrollPos > 100) {
+        $("stickyNoticeBox").addClass("scrolled");
+      } else {
+        $("stickyNoticeBox").removeClass("scrolled");
+      }
+    });
   }, []);
 
   return (

@@ -10,24 +10,9 @@ function Notice(props) {
     { infotext: "참여대상", text: props.Target || "Target" },
     { infotext: "진행상황", text: props.Progress || "Progress" },
   ];
-  const targetRef = useRef(null);
-  const sticky = $(".stickyNoticeBox");
-  const handleScroll = () => {
-    if (window.scrollY > 0) {
-      console.log(window.scrollY);
-    }
-  };
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      window.addEventListener("scroll", handleScroll);
-    }, 100);
-    return () => {
-      clearInterval(timer);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+  // props.type = info / notice 타입선택
+  // props.title = 제목선택
+  // props.Period props.Target props.Progress
   const list = noticeData.map((item, index) => {
     return (
       <div
@@ -41,7 +26,7 @@ function Notice(props) {
             props.type == "notice" ? styles.infotext : styles.noticeInfoText
           }
         >
-          {item.infotext} :{" "}
+          {item.infotext}
         </span>
         <span
           className={props.type == "notice" ? styles.text : styles.noticeText}
@@ -51,8 +36,6 @@ function Notice(props) {
       </div>
     );
   });
-
-  // props.type == 'info' && {}
 
   return (
     <div

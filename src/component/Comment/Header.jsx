@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Header.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Nav(props) {
   return (
@@ -23,6 +24,7 @@ function UserProfile(props) {
 }
 
 function Header(props) {
+  const nav = useNavigate();
   return (
     <div className={styles.headerWrapper}>
       <div className={styles.headerContainer}>
@@ -36,12 +38,14 @@ function Header(props) {
             title="진행중인 콘테스트"
             onClick={function () {
               console.log("진행중인 콘테스트로 이동");
+              nav("/");
             }}
           />
           <Nav
             title="콘테스트 아카이빙"
             onClick={function () {
               console.log("콘테스트 아카이빙로 이동");
+              nav("/Archive");
             }}
           />
           <Nav

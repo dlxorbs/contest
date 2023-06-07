@@ -9,24 +9,25 @@ export default function ChipFilter(props) {
 
   const clickeve = function (e) {
     if (e.target.checked == true) {
-      setCheckedItems([]);
+      setCheckedItems({});
     }
   };
   useEffect(() => {
     // 여기에 필터 넣어야됨
+    const filtereditem = checkedItems[props.name] || {};
+    // 객체의 키값의 value를 찾아내고 어레이형태로 배출
+    const filter = Object.keys(filtereditem).filter(
+      (key) => filtereditem[key] == true
+    );
 
     // 객체의 키값의 value를 찾아내고 그 value가 true가 하나도 없을 경우에 전체를 클릭할 수 잇도록 제작
-    const find = Object.keys(checkedItems).find(
-      (key) => checkedItems[key] == true
+    const find = Object.keys(filtereditem).find(
+      (key) => filtereditem[key] == true
     );
 
     if (find == undefined) {
       setChipClicked(true);
     }
-    // 객체의 키값의 value를 찾아내고 어레이형태로 배출
-    const filter = Object.keys(checkedItems).filter(
-      (key) => checkedItems[key] == true
-    );
 
     //정렬된 필터를 업로드 할 수 있는 함수를 제작하여 부모 컴포넌트로 전송
     props.updateFilter(filter);
@@ -34,25 +35,29 @@ export default function ChipFilter(props) {
     console.log(filter);
   }, [checkedItems]);
 
-  const handleCheckboxChange = (item) => {
+  const handleCheckboxChange = (item, isChecked) => {
     setCheckedItems((items) => ({
       ...items,
-      [item]: !items[item],
+      [props.name]: {
+        ...items[props.name],
+        [item]: isChecked,
+      },
     }));
   };
 
   const list = props.data.map((item) => {
+    const filtereditem = checkedItems[props.name] || false;
     return (
       <Chips
         key={item}
         name={props.name}
         text={item}
         value={item}
-        checked={checkedItems[item]}
+        checked={filtereditem[item]}
         onChange={(e) => {
           console.log(e.target.checked);
           setChipClicked(false);
-          handleCheckboxChange(item);
+          handleCheckboxChange(item, e.target.checked);
         }}
       ></Chips>
     );
@@ -70,6 +75,7 @@ export default function ChipFilter(props) {
           setChipClicked(!chipclicked);
           clickeve(e);
         }}
+        onClick={props.onClick}
       />
       {list}
     </div>

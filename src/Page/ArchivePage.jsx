@@ -9,7 +9,7 @@ export default function ArchivePage(props) {
 
   const [data, setData] = useState([]); // 기본 데이터 지정
   const [datalist, setDatalist] = useState([]); // Chipfilter에서 받아온 데이터 가져오기
-  
+
   const [filtered, setFiltered] = useState([]); // data에서 기반으로 필터링하기
   const [secfiltered, setsecFiltered] = useState([]);
   const [thirdfiltered, setthirdFiltered] = useState([]);
@@ -46,7 +46,6 @@ export default function ArchivePage(props) {
     // console.log(Datas);
   }, []);
 
-
   // Chipfilter에서 props.updatefilter로 제작한 곳
 
   const updateFilter = (filterdata) => {
@@ -56,29 +55,27 @@ export default function ArchivePage(props) {
   // 데이터리스트의 배열을 원본 데이터에 필터링을 한 후에 filtered에 넣기
 
   useEffect(() => {
-    console.log(datalist);
+    // console.log(datalist);
 
     if (datalist.length != 0) {
       const filtering = data.filter((obj) => {
+        // some || 의역할로 한가지라도 true 찾는것 그중 데이터리스트에 있는 값을 가지고 있다면 true로 나타내기
         const finding = Object.values(obj).some((value) =>
           datalist.includes(value)
         );
 
-        console.log(Object.values(obj));
-        console.log(finding);
-
         // console.log(finding);
-
-        if (finding === true) {
-          setNodata(false);
-          // console.log(nodata);
-        } else {
-          setNodata(true);
-        }
         return finding;
       });
       // console.log(filtering);
       setFiltered(filtering);
+      console.log(filtering);
+
+      if (filtering.length == 0) {
+        setNodata(true);
+      } else {
+        setNodata(false);
+      }
     } else {
       setFiltered(data);
     }
@@ -93,26 +90,43 @@ export default function ArchivePage(props) {
           title={"전공"}
           data={major}
           name={"major"}
+          onClick={(e) => {
+            setNodata(false);
+            console.log(e.target);
+            e.target.checked = true;
+          }}
         />
         <ChipFilter
           updateFilter={updateFilter}
           title={"연도"}
           data={year}
           name={"year"}
+          onClick={(e) => {
+            setNodata(false);
+            console.log(e.target);
+            e.target.checked = true;
+          }}
         />
         <ChipFilter
           updateFilter={updateFilter}
           title={"학년"}
           data={grade}
           name={"grade"}
+          onClick={(e) => {
+            setNodata(false);
+            console.log(e.target);
+            e.target.checked = true;
+          }}
         />
       </div>
       <div className={styles.InnerContainer}>
         <div className={styles.navCon}>
           <Category data={category} />
         </div>
-        <CardList data={filtered} type={"Archive"} />
-        {nodata && <div> 아무것도 없어용!! </div>}
+        <div className={styles.CardCon}>
+          <CardList data={filtered} type={"Archive"} />
+          {nodata && <div className={styles.nothing}> 아무것도 없어용!! </div>}
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 .page_Wrapper {
   width: 1320px;
-  height: 2000px;
+  min-height: 1080px;
+  height: auto;
   margin: 0px auto;
   padding: 120px 0px 0px;
 }
@@ -30,10 +31,24 @@
 
 .CardCon {
   width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 48px;
 }
 
 h3 {
   font-size: 24px;
   color: var(--G1);
   margin: 48px 0px 36px;
+}
+
+.nothing {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  font-size: 48px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--G4);
 }

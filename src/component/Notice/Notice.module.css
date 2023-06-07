@@ -25,7 +25,7 @@
   border-radius: 8px;
 }
 
-.scrolled{
+.scrolled {
   background-color: #1e222d;
   border: none;
 }
@@ -34,6 +34,7 @@
   display: flex;
   gap: 12px;
   align-items: center;
+  padding: 20px;
 }
 
 .noticeImage {
@@ -64,6 +65,7 @@
 .tagcon {
   display: flex;
   flex-direction: row;
+  gap: 8px;
 }
 
 .tag {

@@ -8,6 +8,7 @@ export default function Chips(props) {
         name={props.name}
         checked={props.checked}
         onChange={props.onChange}
+        onClick={props.onClick}
         value={props.value}
       />
       <span className={style.chipbtn}> {props.text}</span>

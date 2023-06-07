@@ -6,14 +6,12 @@ import NowContest from "./Page/NowContest";
 import Header from "./component/Comment/Header";
 import ArchivePage from "./Page/ArchivePage";
 function App() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
 
   return (
     <div className="App">
       <Header></Header>
       <ArchivePage></ArchivePage>
-      {/* <NowContest></NowContest> */}
+      {/* <NowContest></NowContest>/ */}
       {/* <Button disabled={false}></Button>
 
       <Button className={"round"} disabled={false}></Button>
