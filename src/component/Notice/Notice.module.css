@@ -16,11 +16,18 @@
   position: sticky;
   display: flex;
   justify-content: space-between;
+  top: 72px;
+  z-index: 999;
   width: 100%;
   height: 160px;
   background-color: #2b2f3d;
   border: 1px solid #4a4d5e;
   border-radius: 8px;
+}
+
+.scrolled{
+  background-color: #1e222d;
+  border: none;
 }
 
 .Btncon {

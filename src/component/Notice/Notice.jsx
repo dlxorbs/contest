@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./Notice.module.css";
 import Tag from "./Tag";
 import NoticeThumb from "./NoticeThumb";
@@ -10,6 +10,23 @@ function Notice(props) {
     { infotext: "참여대상", text: props.Target || "Target" },
     { infotext: "진행상황", text: props.Progress || "Progress" },
   ];
+  const targetRef = useRef(null);
+  const sticky = $(".stickyNoticeBox");
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      console.log(window.scrollY);
+    }
+  };
+cd 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      window.addEventListener("scroll", handleScroll);
+    }, 100);
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const list = noticeData.map((item, index) => {
     return (
@@ -35,13 +52,6 @@ function Notice(props) {
     );
   });
 
-  const scrollEve = (e) => {
-    $(".stickyNoticebox").on("scroll", (e) => {
-      console.log(e);
-    });
-  };
-
-  scrollEve;
   // props.type == 'info' && {}
 
   return (
