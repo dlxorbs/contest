@@ -54,7 +54,7 @@ export default function ArchivePage(props) {
   };
 
   // 데이터리스트의 배열을 원본 데이터에 필터링을 한 후에 filtered에 넣기
-  
+
   useEffect(() => {
     console.log(datalist);
 
@@ -112,7 +112,7 @@ export default function ArchivePage(props) {
           <Category data={category} />
         </div>
         <CardList data={filtered} type={"Archive"} />
-        {nodata && <div> 아무것도 없어용 </div>}
+        {nodata && <div> 아무것도 없어용!! </div>}
       </div>
     </div>
   );
