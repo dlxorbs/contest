@@ -12,8 +12,8 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      {/* <ArchivePage></ArchivePage> */}
-      <NowContest></NowContest>
+      <ArchivePage></ArchivePage>
+      {/* <NowContest></NowContest> */}
       {/* <Button disabled={false}></Button>
 
       <Button className={"round"} disabled={false}></Button>

@@ -17,7 +17,7 @@ function Notice(props) {
       console.log(window.scrollY);
     }
   };
-cd 
+
   useEffect(() => {
     const timer = setInterval(() => {
       window.addEventListener("scroll", handleScroll);

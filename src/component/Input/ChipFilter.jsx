@@ -9,7 +9,7 @@ export default function ChipFilter(props) {
 
   const clickeve = function (e) {
     if (e.target.checked == true) {
-      setCheckedItems({});
+      setCheckedItems([]);
     }
   };
   useEffect(() => {
@@ -30,10 +30,8 @@ export default function ChipFilter(props) {
 
     //정렬된 필터를 업로드 할 수 있는 함수를 제작하여 부모 컴포넌트로 전송
     props.updateFilter(filter);
+    console.log(checkedItems);
     console.log(filter);
-
-    // console.log(data);
-    // console.log(checkedItems);
   }, [checkedItems]);
 
   const handleCheckboxChange = (item) => {
@@ -52,7 +50,7 @@ export default function ChipFilter(props) {
         value={item}
         checked={checkedItems[item]}
         onChange={(e) => {
-          // console.log(e.target.checked);
+          console.log(e.target.checked);
           setChipClicked(false);
           handleCheckboxChange(item);
         }}
@@ -71,7 +69,6 @@ export default function ChipFilter(props) {
         onChange={(e) => {
           setChipClicked(!chipclicked);
           clickeve(e);
-          // console.log(e.target.checked);
         }}
       />
       {list}

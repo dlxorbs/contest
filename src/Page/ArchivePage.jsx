@@ -9,7 +9,10 @@ export default function ArchivePage(props) {
 
   const [data, setData] = useState([]); // 기본 데이터 지정
   const [datalist, setDatalist] = useState([]); // Chipfilter에서 받아온 데이터 가져오기
+  
   const [filtered, setFiltered] = useState([]); // data에서 기반으로 필터링하기
+  const [secfiltered, setsecFiltered] = useState([]);
+  const [thirdfiltered, setthirdFiltered] = useState([]);
   const [nodata, setNodata] = useState(false); // 데이터가 있는지 없는지에 대해 판별하기 위한 T/F
 
   //사용되는 데이터 지정 LNB , Filter
@@ -43,9 +46,15 @@ export default function ArchivePage(props) {
     // console.log(Datas);
   }, []);
 
+
+  // Chipfilter에서 props.updatefilter로 제작한 곳
+
   const updateFilter = (filterdata) => {
     setDatalist(filterdata);
   };
+
+  // 데이터리스트의 배열을 원본 데이터에 필터링을 한 후에 filtered에 넣기
+  
   useEffect(() => {
     console.log(datalist);
 
@@ -54,13 +63,21 @@ export default function ArchivePage(props) {
         const finding = Object.values(obj).some((value) =>
           datalist.includes(value)
         );
+
+        console.log(Object.values(obj));
         console.log(finding);
-        if (finding === false) {
+
+        // console.log(finding);
+
+        if (finding === true) {
+          setNodata(false);
+          // console.log(nodata);
+        } else {
           setNodata(true);
-          console.log(nodata);
         }
         return finding;
       });
+      // console.log(filtering);
       setFiltered(filtering);
     } else {
       setFiltered(data);
