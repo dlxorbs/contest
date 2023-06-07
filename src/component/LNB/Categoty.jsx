@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styles from "./Lnb.module.css";
 
 export default function Category(props) {
-  const [clickedIndex, setClickedIndex] = useState(-1);
-  const [clickedsecIndex, setClickedsecIndex] = useState(-1);
+  const [clickedIndex, setClickedIndex] = useState(0);
+  const [clickedsecIndex, setClickedsecIndex] = useState(0);
 
   const list = props.data.map((item, index) => {
     const categoryClassName = clickedIndex === index ? styles.clicked : "";
@@ -31,6 +31,7 @@ export default function Category(props) {
           className={categoryClassName}
           onClick={(e) => {
             setClickedIndex(index);
+            // nav()형식으로 제작
           }}
         >
           {item.title}

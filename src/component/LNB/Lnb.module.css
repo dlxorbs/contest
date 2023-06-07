@@ -56,4 +56,5 @@ ul li {
 
 .innerCategory {
   display: none;
+  transition: 0.8s;
 }

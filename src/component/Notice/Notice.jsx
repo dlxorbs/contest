@@ -43,19 +43,24 @@ function Notice(props) {
         props.type == "notice" ? styles.noticeBox : styles.stickyNoticebox
       }
     >
-      {props.type == "notice" && <NoticeThumb src={""} />}
+      {props.type == "notice" && <NoticeThumb src={props.thumbnail} />}
 
       <div
         className={styles.titleBox}
         style={
           props.type == "notice"
-            ? { "--padding": 30 + "px " + 24 + "px", "--minwidth": 780 + "px" }
+            ? { "--padding": 30 + "px " + 24 + "px", "--minwidth": 484 + "px" }
             : { "--padding": 20 + "px" }
         }
       >
         <div className={styles.tagcon}>
-          <Tag className={styles.default} text={"a"} />
-          <Tag className={styles.disabled} text={"b"} />
+          <Tag
+            className={
+              props.progress == "마감" ? styles.disabled : styles.default
+            }
+            text={props.Progress}
+          />
+          <Tag className={styles.default} text={props.contest} />
         </div>
         <span> {props.title || "Title"}</span>
         {props.type == "info" && (

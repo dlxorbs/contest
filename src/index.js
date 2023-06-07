@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import NowContest from "./Page/NowContest";
 import Header from "./component/Comment/Header";
 import ArchivePage from "./Page/ArchivePage";
+import NoticePage from "./Page/NoticePage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,6 +16,7 @@ root.render(
     <Routes>
       <Route index element={<NowContest />}></Route>
       <Route path="Archive" element={<ArchivePage />}></Route>
+      <Route path="Notice" element={<NoticePage />}></Route>
     </Routes>
   </BrowserRouter>
 );

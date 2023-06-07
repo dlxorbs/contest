@@ -105,10 +105,10 @@
 
 .noticeList {
   display: flex;
-  justify-content: center;
+  width: 100%;
+  padding: 36px;
+  justify-content: space-between;
   flex-direction: row;
-
-  gap: 50px;
 
   color: #b1b4ba;
 }
@@ -178,4 +178,11 @@
   font-size: 16px;
   line-height: 150%;
   color: #ffffff;
+}
+
+.noticeContainer {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  gap: 24px;
 }

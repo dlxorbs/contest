@@ -8,7 +8,8 @@ function Button(props) {
       onClick={props.onClick}
       disabled={props.disabled}
     >
-      {props.title || "Button"}
+      <div className="floatani"></div>
+      <span>{props.title || "Button"}</span>
     </button>
   );
 }

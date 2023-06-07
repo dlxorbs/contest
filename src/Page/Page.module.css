@@ -30,7 +30,7 @@
 }
 
 .CardCon {
-  width: 100%;
+  width: calc(100% - 315px);
   display: flex;
   position: relative;
   flex-direction: column;

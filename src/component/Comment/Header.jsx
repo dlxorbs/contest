@@ -52,6 +52,7 @@ function Header(props) {
             title="콘테스트 공지사항"
             onClick={function () {
               console.log("콘테스트 공지사항로 이동");
+              nav("/Notice");
             }}
           />
         </div>
