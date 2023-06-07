@@ -10,12 +10,19 @@ export default function NoticeList(props) {
         thumbnail={item.thumbnail}
         title={item.title}
         type={props.type}
-        Period={props.Period}
-        Target={props.Target}
-        Progress={props.Progress}
+        Period={item.Period}
+        Target={item.target}
+        contest={item.contest}
+        Progress={item.Progress}
       />
     );
   });
 
-  return <div className={styles.noticeContainer}>{list}</div>;
+  return (
+    <div
+      className={styles.noticeContainer}
+    >
+      {list}
+    </div>
+  );
 }

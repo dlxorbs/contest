@@ -3,12 +3,14 @@ import $ from "jquery";
 import Category from "../component/LNB/Categoty";
 import styles from "./Page.module.css";
 import { db } from "../firebase.js";
+import dummy from "../data/data.json";
 import CardList from "../component/Card/CardList";
 import Notice from "../component/Notice/Notice";
 
 export default function NowContest(props) {
   // 이거는 각 페이지마다 정보가 다르게 들어갈 수 있도록 제작해야됨
   const [data, setData] = useState([]); // 기본 데이터 지정
+  const [dataform, setDataform] = useState([dummy[0]]);
   const category = [
     {
       title: "진행중인 경진대회",
@@ -36,14 +38,28 @@ export default function NowContest(props) {
   useEffect(() => {
     $(window).on("scroll", function () {
       const scrollPos = $(window).scrollTop();
+      console.log(dataform);
       console.log(scrollPos);
       if (scrollPos > 100) {
-        $("stickyNoticeBox").addClass("scrolled");
       } else {
-        $("stickyNoticeBox").removeClass("scrolled");
       }
     });
   }, []);
+
+  const list = dataform.map((item) => {
+    return (
+      <Notice
+        key={item.id}
+        thumbnail={item.thumbnail}
+        title={item.title}
+        type={"info"}
+        Period={item.Period}
+        Target={item.target}
+        contest={item.contest}
+        Progress={item.Progress}
+      />
+    );
+  });
 
   return (
     <div className={styles.page_Wrapper}>
@@ -60,12 +76,7 @@ export default function NowContest(props) {
           <Category data={category} />
         </div>
         <div className={styles.CardCon}>
-          <Notice
-            type={"info"}
-            Target={"나"}
-            Period={" rlrks"}
-            Prgress={"asdasd"}
-          />
+          {list}
           <CardList data={data} type={"Now"} />
         </div>
       </div>

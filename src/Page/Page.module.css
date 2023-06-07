@@ -12,13 +12,15 @@
 }
 
 .InnerContainer {
+  position: relative;
   width: 100%;
   height: 100%;
   padding-top: 56px;
   display: flex;
 }
 .navCon {
-  position: relative;
+  position: sticky;
+  top: 95px;
   width: 315px;
   height: 100%;
 }
@@ -32,7 +34,7 @@
 .CardCon {
   width: calc(100% - 315px);
   display: flex;
-  position: relative;
+
   flex-direction: column;
   gap: 48px;
 }

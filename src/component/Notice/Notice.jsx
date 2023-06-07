@@ -40,7 +40,9 @@ function Notice(props) {
   return (
     <div
       className={
-        props.type == "notice" ? styles.noticeBox : styles.stickyNoticebox
+        props.type == "notice"
+          ? styles.noticeBox
+          : `${styles.stickyNoticebox} ${"undefined" ? "" : props.className}`
       }
     >
       {props.type == "notice" && <NoticeThumb src={props.thumbnail} />}

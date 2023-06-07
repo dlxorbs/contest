@@ -1,10 +1,9 @@
 .cateCon {
   width: calc(315px - 40px);
-  position: sticky;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  top: 95px;
+
   margin: 0;
   list-style: none;
   padding: 0 20px;
