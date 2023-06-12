@@ -1,0 +1,63 @@
+/* CommentItem */
+.Comment_Wrapper {
+  width: calc(100% - 48px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  cursor: pointer;
+
+  gap: 10px;
+  border-bottom: 0.5px solid #99999960;
+}
+
+.Comment_Content {
+  font-size: 16px;
+  white-space: pre-wrap;
+  margin: 0;
+  color: #ffffff;
+}
+.profile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.imgcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-image: url(https://bot-log-product.s3.ap-northeast-2.amazonaws.com/product/tving/still/P001599424-%EB%84%A4%EB%AA%A8%EB%B0%94%EC%A7%80_%EC%8A%A4%ED%8F%B0%EC%A7%80%EB%B0%A5_%EC%8B%9C%EC%A6%8C9.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+.textcon {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
+.textcon > * {
+  margin: 0px;
+  font-size: 12px;
+}
+
+.textcon > :first-child {
+  color: var(--G9);
+  font-weight: 700;
+}
+
+.textcon > :last-child {
+  color: #999999;
+}
+
+/* CommentList */
+.CommentList_Wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

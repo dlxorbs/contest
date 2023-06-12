@@ -4,9 +4,9 @@ import ChipFilter from "../component/Input/ChipFilter";
 import styles from "./Page.module.css";
 import { db } from "../firebase.js";
 import CardList from "../component/Card/CardList";
+import Modal from "./ModalPage";
 
-export default function ArchivePage(props) {
-  // 각 페이지마다 정보를 저장할 state들을 설정합니다.
+export default function ArchivePage() {
   const [data, setData] = useState([]); // 기본 데이터 지정
   const [datalist1, setDatalist1] = useState([]); // 첫 번째 ChipFilter에서 받아온 데이터 저장
   const [datalist2, setDatalist2] = useState([]); // 두 번째 ChipFilter에서 받아온 데이터 저장
@@ -14,8 +14,22 @@ export default function ArchivePage(props) {
   const [dataLNB, setDatalistLNB] = useState([]); // LNB 받아온 데이터 저장
   const [lnbfilter, setLnbfilter] = useState(0);
   const [filtered, setFiltered] = useState([]); // data에서 기반으로 필터링한 데이터 저장
-  const [nodata, setNodata] = useState(false); // 데이터가 있는지 없는지 판별을 위한 변수
-
+  const [majordata, setMajordata] = useState("");
+  const [comments, setComments] = useState([]);
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [comment, setComment] = useState("");
+  const [post, setPost] = useState({
+    id: "",
+    title: "",
+    studentinfo: "",
+    grade: "",
+    year: "",
+    type: "",
+    imgscr: "",
+    major: "",
+    content: "",
+    comments: [],
+  });
   // 타입 0:과제경진대회 1:포트 2:로고 ...
 
   // 사용되는 데이터 지정 (LNB, Filter)
@@ -41,11 +55,31 @@ export default function ArchivePage(props) {
     db.collection("Archive")
       .get()
       .then((qs) => {
-        const Datas = qs.docs.map((doc) => doc.data());
+        const Datas = qs.docs.map((item) => {
+          const data = item.data();
+          return { id: item.id, ...data };
+        });
         setData(Datas);
         setFiltered(Datas);
       });
   }, []);
+
+  // 선택된 카드의 댓글을 가져오는 useEffect
+  useEffect(() => {
+    if (selectedCard) {
+      db.collection("Archive")
+        .doc(selectedCard.id)
+        .get()
+        .then((doc) => {
+          const data = doc.data();
+          if (data) {
+            console.log(data);
+            setPost(data);
+            setComments(data.comments);
+          }
+        });
+    }
+  }, [selectedCard]);
 
   // 첫 번째 ChipFilter에서 필터링된 데이터 업데이트
   const updateFilter1 = (filterdata) => {
@@ -79,20 +113,26 @@ export default function ArchivePage(props) {
     }
   };
 
+  const openModal = (card) => {
+    setSelectedCard(card);
+  };
+
+  const closeModal = () => {
+    setSelectedCard(null);
+  };
+
   // 초기 필터링을 수행하는 useEffect
   useEffect(() => {
     const filteredData = data.filter((obj) => obj.type.includes(lnbfilter));
     setDatalistLNB(filteredData);
     setFiltered(filteredData);
-    setNodata(filteredData.length === 0);
   }, []);
 
   useEffect(() => {
     const filteredData = data.filter((obj) => obj.type.includes(lnbfilter));
     setDatalistLNB(filteredData);
     setFiltered(filteredData);
-    setNodata(filteredData.length === 0);
-  }, [lnbfilter]);
+  }, [data, lnbfilter]);
 
   // 데이터 필터링
   useEffect(() => {
@@ -112,8 +152,7 @@ export default function ArchivePage(props) {
 
     console.log(datalist1, datalist2, datalist3);
     setFiltered(filtering);
-    setNodata(filtering.length === 0);
-  }, [datalist1, datalist2, datalist3, data]);
+  }, [datalist1, datalist2, datalist3, data, dataLNB, lnbfilter, majordata]);
 
   return (
     <div className={styles.page_Wrapper}>
@@ -125,7 +164,6 @@ export default function ArchivePage(props) {
           data={major}
           name={"major"}
           onClick={(e) => {
-            setNodata(false);
             e.target.checked = true;
           }}
         />
@@ -135,7 +173,6 @@ export default function ArchivePage(props) {
           data={year}
           name={"year"}
           onClick={(e) => {
-            setNodata(false);
             e.target.checked = true;
           }}
         />
@@ -145,7 +182,6 @@ export default function ArchivePage(props) {
           data={grade}
           name={"grade"}
           onClick={(e) => {
-            setNodata(false);
             e.target.checked = true;
           }}
         />
@@ -155,10 +191,44 @@ export default function ArchivePage(props) {
           <Category data={category} onItemClick={handleItemClick} />
         </div>
         <div className={styles.CardCon}>
-          <CardList data={filtered} type={"Archive"} />
-          {nodata && <div className={styles.nothing}> 아무것도 없어용!! </div>}
+          {filtered.length > 0 ? ( // filtered에 데이터가 있는지 확인
+            <CardList data={filtered} type={"Archive"} openModal={openModal} />
+          ) : (
+            <div className={styles.nothing}> 내용이 없습니다. </div>
+          )}
         </div>
       </div>
+
+      {selectedCard && (
+        <Modal
+          onClick={closeModal}
+          title={selectedCard.title}
+          studentinfo={selectedCard.studentinfo}
+          reply={function () {
+            let timestamp = new Date().getTime().toString();
+            let tempcomments = post.comments;
+            tempcomments.push({
+              id: selectedCard.id + "_" + timestamp,
+              time: timestamp,
+              content: comment,
+            });
+            db.collection("Archive")
+              .doc(selectedCard.id)
+              .update({
+                comments: tempcomments,
+              })
+              .then(setComment(""));
+          }}
+          value={comment}
+          onChange={function (e) {
+            setComment(e.target.value);
+            e.target.style.height = "94px";
+            e.target.style.height = e.target.scrollHeight + "px";
+          }}
+          imgsrc={selectedCard.imgsrc}
+          comments={post.comments}
+        />
+      )}
     </div>
   );
 }

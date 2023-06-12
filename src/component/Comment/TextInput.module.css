@@ -14,6 +14,7 @@
   font-weight: var(--fontweight);
   line-height: var(--lineheight);
   white-space: normal;
+  background-color: transparent;
   resize: none;
   overflow: inherit;
   overflow-wrap: anywhere;
@@ -31,10 +32,13 @@ textarea:focus {
 }
 
 .Comment_Container {
-  width: 1160px;
+  width: calc(100% - 72px);
   height: auto;
   display: flex;
+  margin: auto;
+  margin-bottom: 24px;
   padding: 12px;
+  margin-top: 20px;
   flex-direction: column;
   align-items: flex-end;
   caret-color: rgba(255, 255, 255, 0.8);

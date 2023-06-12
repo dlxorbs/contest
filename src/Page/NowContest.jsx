@@ -6,6 +6,7 @@ import { db } from "../firebase.js";
 import dummy from "../data/data.json";
 import CardList from "../component/Card/CardList";
 import Notice from "../component/Notice/Notice";
+import Modal from "./ModalPage";
 
 export default function NowContest(props) {
   const [data, setData] = useState([]);
@@ -26,11 +27,11 @@ export default function NowContest(props) {
     let Datas = [];
     db.collection("Now")
       .get()
-      .then(function (qs) {
-        qs.forEach((doc) => {
-          Datas.push(doc.data());
+      .then((qs) => {
+        const Datas = qs.docs.map((doc) => {
+          const data = doc.data();
+          return { id: doc.id, ...data };
         });
-
         setData(Datas);
       });
   }, []);
@@ -49,13 +50,17 @@ export default function NowContest(props) {
       />
     );
   });
+  const handleItemClick = (clickedItem) => {
+    // 클릭한 값
+    console.log(clickedItem);
+  };
 
   return (
     <div className={styles.page_Wrapper}>
       <h3>진행중인 경진대회</h3>
       <div className={styles.InnerContainer}>
         <div className={styles.navCon}>
-          <Category data={category} className={scrolled} />
+          <Category data={category} onItemClick={handleItemClick} />
         </div>
         <div className={styles.CardCon}>
           {list}
