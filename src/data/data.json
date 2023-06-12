@@ -1,66 +1,98 @@
 [
   {
+    "id": 0,
     "thumbnail": "https://www.loud.kr/upload/success/20220623122932thumb_02.png",
     "title": "2022 부산국제단편영화제 공식 포스터 디자인 공모전",
     "Progress": "투표중",
     "target": "4학년 이하의 재학생",
     "Period": "2021.08.10 ~ 2021.09.15",
-    "contest": "공모전"
+    "contest": "공모전",
+    "type": 0,
+    "imgsrc": "https://www.contestindex.co.kr/files/attach/images/161/302/013/89dc9ed92df6a85bed18b577a008ab84.jpg",
+    "inform": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
   },
   {
+    "id": 1,
     "thumbnail": "https://www.tukorea.ac.kr/sites/tukorea/images/sub/symbol_mark_6_2.jpg",
     "title": "2022 디자인학부 과제전",
     "Progress": "진행중",
     "target": "4학년 이하의 재학생",
     "Period": "2022.05.05 ~ 2022.06.30",
-    "contest": "경진대회"
+    "contest": "경진대회",
+    "type": 1,
+    "imgsrc": "https://416foundation.org/content/uploads/2021/03/4%C2%B716%EC%9E%AC%EB%8B%A8-%EC%BD%98%ED%85%90%EC%B8%A0-%EA%B3%B5%EB%AA%A8%EC%A0%84-%ED%8F%AC%EC%8A%A4%ED%84%B0-scaled.jpg",
+    "inform": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
   },
   {
+    "id": 2,
     "thumbnail": "https://www.tukorea.ac.kr/sites/tukorea/images/sub/symbol_mark_6_2.jpg",
     "title": "2022 디자인학부 포트폴리오 경진대회",
     "Progress": "마감",
     "target": "2학년 이상의 재학생",
     "Period": "2022.08.15 ~ 2022.09.31",
-    "contest": "경진대회"
+    "contest": "경진대회",
+    "type": 1,
+    "imgsrc": "",
+    "inform": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
   },
   {
+    "id": 3,
     "thumbnail": "https://www.loud.kr/upload/success/20230517034128thumb_01.png",
     "title": "한국핸드볼연맹 로고 및 심볼 콘테스트",
     "Progress": "투표중",
     "target": "4학년 이하의 재학생",
     "Period": "2023.04.01 ~ 2022.06.01",
-    "contest": "공모전"
+    "contest": "공모전",
+    "type": 0,
+    "imgsrc": "",
+    "inform": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
   },
   {
+    "id": 4,
     "thumbnail": "https://www.loud.kr/upload/success/20221109050335conts_02.png",
     "title": "' 공정무역도시 화성' 로고(BI) 공모전",
     "Progress": "마감",
     "target": "4학년 이하의 재학생",
     "Period": "2023.01.20 ~ 2023.03.31",
-    "contest": "공모전"
+    "contest": "공모전",
+    "type": 0,
+    "imgsrc": "https://www.jpdc.co.kr/files/editor/87b55405-e91d-4b03-b34b-c9039d5d1474.jpg",
+    "inform": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
   },
   {
-    "thumbnail": "https://www.loud.kr/upload/success/20220610020806%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202022.06.03%20165906.png",
+    "id": 5,
+    "thumbnail": "https://cdn-dantats.stunning.kr/prod/portfolios/8ddcf2e2-2317-4d65-aefa-639e6add4b6b/covers/order_sub_3046218_1_220516235943.jpg.small?s=800x800&t=crop&q=10&f=webp",
     "title": "행정안전부 '국가 모바일 신분증' BI 공모전",
     "Progress": "투표중",
     "target": "4학년 이하의 재학생",
     "Period": "2023.03.31 ~ 2023.06.01",
-    "contest": "공모전"
+    "contest": "공모전",
+    "type": 1,
+    "imgsrc": "",
+    "inform": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
   },
   {
+    "id": 6,
     "thumbnail": "https://www.loud.kr/upload/success/20221109044539conts_01.png",
     "title": "YBM어학원 브랜드 캐릭터 디자인",
     "Progress": "진행중",
     "target": "4학년 이하의 재학생",
     "Period": "2023.05.10 ~ 2022.06.20",
-    "contest": "공모전"
+    "contest": "공모전",
+    "type": 1,
+    "imgsrc": "",
+    "inform": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
   },
   {
+    "id": 7,
     "thumbnail": "https://www.tukorea.ac.kr/sites/tukorea/images/sub/symbol_mark_6_2.jpg",
     "title": "2023 디자인학부 과제전",
     "Progress": "진행중",
     "target": "2학년 이상의 재학생",
     "Period": "2023.05.10 ~ 2023.06.31",
-    "contest": "경진대회"
+    "contest": "경진대회",
+    "type": 0,
+    "imgsrc": "",
+    "inform": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
   }
 ]

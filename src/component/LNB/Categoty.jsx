@@ -39,6 +39,7 @@ export default function Category(props) {
         handleItemClick(lists[0].props.children);
       } else {
         handleItemClick(item);
+        setClickedIndex(index);
         setClickedsecIndex(0);
       }
     };

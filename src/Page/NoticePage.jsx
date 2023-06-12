@@ -7,6 +7,8 @@ import NoticeList from "../component/Notice/NoticeList";
 import data from "../data/data.json";
 
 export default function NoticePage(props) {
+  const [lnbfilter, setLnbfilter] = useState("");
+  const [dataLNB, setDatalistLNB] = useState([]); // LNB 받아온 데이터 저장
   // 이거는 각 페이지마다 정보가 다르게 들어갈 수 있도록 제작해야됨
   const category = [
     { title: "전체", secondary: [] },
@@ -28,22 +30,46 @@ export default function NoticePage(props) {
   //       });
   //   }, []);
 
+  // 초기 필터링을 수행하는 useEffect
+  useEffect(() => {
+    const filteredData = data.filter((obj) => obj.type == lnbfilter);
+    setDatalistLNB(filteredData);
+  }, []);
+
+  useEffect(() => {
+    const filteredData = data.filter((obj) => obj.type == lnbfilter);
+    setDatalistLNB(filteredData);
+  }, [data, lnbfilter]);
+
+  const handleItemClick = (clickedItem) => {
+    // 클릭한 값
+    console.log(clickedItem);
+
+    if (clickedItem === category[0]) {
+      setLnbfilter("");
+    }
+
+    if (clickedItem === category[1]) {
+      setLnbfilter(0);
+    }
+
+    if (clickedItem === category[2]) {
+      setLnbfilter(1);
+    }
+  };
+
   return (
     <div className={styles.page_Wrapper}>
       <h3>공지사항</h3>
-      {/* <Notice
-        type={"notice"}
-        Target={"나"}
-        Period={" rlrks"}
-        Prgress={"asdasd"}
-      ></Notice> */}
-
       <div className={styles.InnerContainer}>
         <div className={styles.navCon}>
-          <Category data={category} />
+          <Category data={category} onItemClick={handleItemClick} />
         </div>
         <div className={styles.CardCon}>
-          <NoticeList type={"notice"} data={data} />
+          <NoticeList
+            type={"notice"}
+            data={lnbfilter === "" ? data : dataLNB}
+          />
         </div>
       </div>
     </div>

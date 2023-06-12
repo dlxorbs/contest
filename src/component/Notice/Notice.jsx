@@ -67,6 +67,7 @@ function Notice(props) {
   return (
     <div
       ref={props.type == "info" ? stickyRef : nothing}
+      onClick={props.onNoticeClick}
       className={
         props.type == "notice" ? styles.noticeBox : styles.stickyNoticebox
       }
@@ -112,7 +113,10 @@ function Notice(props) {
       {props.type == "info" && (
         <div className={styles.Btncon}>
           <Button className={"line"} title={"자세히 보기"} />
-          <Button title={"신청하기"} />
+          <Button
+            title={"신청하기"}
+            onClick={props.onInfoClick}
+          />
         </div>
       )}
     </div>
