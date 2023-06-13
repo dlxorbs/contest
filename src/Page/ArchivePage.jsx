@@ -52,12 +52,12 @@ export default function ArchivePage() {
 
   // firebase 데이터 가져오기
   useEffect(() => {
+    let Datas = [];
     db.collection("Archive")
       .get()
       .then((qs) => {
-        const Datas = qs.docs.map((item) => {
-          const data = item.data();
-          return { id: item.id, ...data };
+        qs.forEach((doc) => {
+          Datas.push(doc.data());
         });
         setData(Datas);
         setFiltered(Datas);

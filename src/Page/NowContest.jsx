@@ -43,16 +43,16 @@ export default function NowContest(props) {
 
   // firebase 데이터 가져오기
   useEffect(() => {
+    let Datas = [];
     db.collection("Now")
       .get()
       .then((qs) => {
-        const Datas = qs.docs.map((doc) => {
-          const data = doc.data();
-          return { id: doc.id, ...data };
+        qs.forEach((doc) => {
+          Datas.push(doc.data());
         });
         setData(Datas);
+        setFiltered(Datas);
       });
-    console.log(dataform);
   }, []);
   // 선택된 카드의 댓글을 가져오는 useEffect
   useEffect(() => {

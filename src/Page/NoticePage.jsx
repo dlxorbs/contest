@@ -16,20 +16,6 @@ export default function NoticePage(props) {
     { title: "공모전", secondary: [] },
   ];
 
-  // firebase 데이터 가져오기
-  //   useEffect(function () {
-  //     let Datas = [];
-  //     db.collection("Now")
-  //       .get()
-  //       .then(function (qs) {
-  //         qs.forEach((doc) => {
-  //           Datas.push(doc.data());
-  //         });
-
-  //         setData(Datas);
-  //       });
-  //   }, []);
-
   // 초기 필터링을 수행하는 useEffect
   useEffect(() => {
     const filteredData = data.filter((obj) => obj.type == lnbfilter);
