@@ -10,16 +10,16 @@ export default function Card(props) {
     <div className={styles.card}>
       <CardThumb
         thumbnail={props.thumbnail}
-        title={props.title}
+        major={props.major}
+        studentinfo={props.studentinfo}
         onClick={props.onClick}
+        display={props.type === "Now" && "none"}
       />
-      {props.type === "Archive" && (
-        <NameTag major={props.major} studentinfo={props.studentinfo} />
-      )}
+
       {props.type === "Vote" && (
         <Button className={"round"} title={"투표하기"} />
       )}
-      {props.type === "Now" && <NameTag major={props.major} display={"none"} />}
+      {props.type !== "Vote" && <NameTag title={props.title} />}
     </div>
   );
 }

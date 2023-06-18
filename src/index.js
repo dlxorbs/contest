@@ -4,7 +4,7 @@ import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import NowContest from "./Page/NowContest";
-import Header from "./component/Comment/Header";
+import Header from "./component/Header/Header";
 import ArchivePage from "./Page/ArchivePage";
 import NoticePage from "./Page/NoticePage";
 import NoticeViewPage from "./Page/NoticeViewPage";

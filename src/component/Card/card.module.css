@@ -25,29 +25,30 @@
   height: 100%;
 
   display: flex;
+  justify-content: space-between;
   align-items: flex-end;
 
   color: #fff;
 }
 
-.bottomOverlay:hover {
+.bottomOverlay {
   background: linear-gradient(180deg, rgba(20, 20, 21, 0) 0%, #14141580 80%);
 }
 
 .bottomOverlay > span {
   display: none;
-  width: calc(100% - 32px);
   padding: 18px 16px;
   text-align: left;
   text-overflow: ellipsis;
   font-size: 16px;
 }
 
-.bottomOverlay:hover > span {
+.bottomOverlay > span {
   display: block;
 }
+
 .studentinfo {
-  display: var(--display);
+  display: var(--display) !important`;
 }
 
 .nametag {

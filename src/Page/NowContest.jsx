@@ -116,6 +116,11 @@ export default function NowContest(props) {
     setSelectedCard(null);
   };
 
+  // 모달 나타날때 배경없애기
+  selectedCard
+    ? $("#root").css({ height: "100vh", overflow: "hidden" })
+    : $("#root").css({ height: "", overflow: "" });
+
   const list = dataform.map((item) => {
     return (
       <Notice
