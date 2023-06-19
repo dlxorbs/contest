@@ -17,7 +17,22 @@ function MainPage() {
   const [ndata, setNData] = useState([]);
   const [nfilterdata, setNfilterData] = useState([]);
   const [adata, setAData] = useState([]);
-  const [selectedCard, setSelectedCard] = useState(null);
+  const [selectedACard, setSelectedACard] = useState(null);
+  const [selectedNCard, setSelectedNCard] = useState(null);
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
+  const [post, setPost] = useState({
+    id: "",
+    title: "",
+    studentinfo: "",
+    grade: "",
+    year: "",
+    type: "",
+    imgscr: "",
+    major: "",
+    content: "",
+    comments: [],
+  });
 
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [activeSlideIndex2, setActiveSlideIndex2] = useState(0);
@@ -39,29 +54,15 @@ function MainPage() {
           Datas.push(doc.data());
         });
         setNData(Datas);
+        setNfilterData(Datas);
       });
   }, []);
-  useEffect(() => {
-    let Datas = [];
-    db.collection("Now")
-      .get()
-      .then((qs) => {
-        qs.forEach((doc) => {
-          Datas.push(doc.data());
-        });
-        setNData(Datas);
-      });
-  }, [ndata]);
 
   // 초기 필터링을 수행하는 useEffect
   useEffect(() => {
-    const filteredData = ndata.filter((obj) => obj.type.includes(20231));
+    const filteredData = nfilterdata.filter((obj) => obj.type.includes(20231));
     setNfilterData(filteredData);
   }, []);
-  useEffect(() => {
-    const filteredData = ndata.filter((obj) => obj.type.includes(20231));
-    setNfilterData(filteredData);
-  }, [ndata]);
 
   useEffect(() => {
     let Datas = [];
@@ -77,32 +78,47 @@ function MainPage() {
 
   // 선택된 카드의 댓글을 가져오는 useEffect
   useEffect(() => {
-    if (selectedCard) {
+    if (selectedNCard) {
       db.collection("Now")
-        .doc(selectedCard.id)
+        .doc(selectedNCard.id)
         .get()
         .then((doc) => {
           const data = doc.data();
           if (data) {
             console.log(data);
-            // setPost(data);
-            // setComments(data.comments);
+            setPost(data);
+            setComments(data.comments);
           }
         });
     }
-  }, [selectedCard]);
+  }, [selectedNCard]);
+
+  useEffect(() => {
+    if (selectedACard) {
+      db.collection("Archive")
+        .doc(selectedACard.id)
+        .get()
+        .then((doc) => {
+          const data = doc.data();
+          if (data) {
+            console.log(data);
+            setPost(data);
+            setComments(data.comments);
+          }
+        });
+    }
+  }, [selectedACard]);
 
   const openModal = (card) => {
-    setSelectedCard(card);
-    console.log(selectedCard);
+    setSelectedNCard(card);
   };
 
   const closeModal = () => {
-    setSelectedCard(null);
+    setSelectedNCard(null);
   };
 
   // 모달 나타날때 배경없애기
-  selectedCard
+  selectedNCard
     ? $("#root").css({ height: "100vh", overflow: "hidden" })
     : $("#root").css({ height: "", overflow: "" });
 
@@ -176,7 +192,10 @@ function MainPage() {
                   type={"Now"}
                   major={item.major}
                   studentinfo={item.studentinfo}
-                  onClick={() => openModal}
+                  onClick={() => {
+                    openModal(item);
+                    console.log(item);
+                  }}
                 />
               );
             })
@@ -241,7 +260,9 @@ function MainPage() {
                   type={"Archive"}
                   major={item.major}
                   studentinfo={item.studentinfo}
-                  onClick={() => openModal}
+                  onClick={() => {
+                    openModal(item);
+                  }}
                 />
               );
             })
@@ -252,6 +273,66 @@ function MainPage() {
         <h3>콘테스트 정보</h3>
         <NoticeList type={"notice"} data={data.slice(0, 4)} />
       </div>
+      {selectedNCard && (
+        <Modal
+          onClick={closeModal}
+          title={selectedNCard.title}
+          studentinfo={selectedNCard.studentinfo}
+          reply={function () {
+            let timestamp = new Date().getTime().toString();
+            let tempcomments = post.comments;
+            tempcomments.push({
+              id: selectedNCard.id + "_" + timestamp,
+              time: timestamp,
+              content: comment,
+            });
+            db.collection("Now")
+              .doc(selectedNCard.id)
+              .update({
+                comments: tempcomments,
+              })
+              .then(setComment(""));
+          }}
+          value={comment}
+          onChange={function (e) {
+            setComment(e.target.value);
+            e.target.style.height = "94px";
+            e.target.style.height = e.target.scrollHeight + "px";
+          }}
+          imgsrc={selectedNCard.imgsrc}
+          comments={post.comments}
+        />
+      )}
+      {selectedACard && (
+        <Modal
+          onClick={closeModal}
+          title={selectedACard.title}
+          studentinfo={selectedACard.studentinfo}
+          reply={function () {
+            let timestamp = new Date().getTime().toString();
+            let tempcomments = post.comments;
+            tempcomments.push({
+              id: selectedACard.id + "_" + timestamp,
+              time: timestamp,
+              content: comment,
+            });
+            db.collection("Now")
+              .doc(selectedACard.id)
+              .update({
+                comments: tempcomments,
+              })
+              .then(setComment(""));
+          }}
+          value={comment}
+          onChange={function (e) {
+            setComment(e.target.value);
+            e.target.style.height = "94px";
+            e.target.style.height = e.target.scrollHeight + "px";
+          }}
+          imgsrc={selectedACard.imgsrc}
+          comments={post.comments}
+        />
+      )}
     </div>
   );
 }
