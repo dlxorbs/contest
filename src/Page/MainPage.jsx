@@ -63,6 +63,10 @@ function MainPage() {
     const filteredData = nfilterdata.filter((obj) => obj.type.includes(20231));
     setNfilterData(filteredData);
   }, []);
+  useEffect(() => {
+    const filteredData = nfilterdata.filter((obj) => obj.type.includes(20231));
+    setNfilterData(filteredData);
+  }, [ndata]);
 
   useEffect(() => {
     let Datas = [];
@@ -73,6 +77,7 @@ function MainPage() {
           Datas.push(doc.data());
         });
         setAData(Datas);
+        console.log(adata);
       });
   }, []);
 
@@ -105,6 +110,7 @@ function MainPage() {
             setPost(data);
             setComments(data.comments);
           }
+          console.log(ndata);
         });
     }
   }, [selectedACard]);

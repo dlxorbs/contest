@@ -70,6 +70,7 @@ export default function ArchivePage() {
         setData(Datas);
         setFiltered(Datas);
       });
+    console.log(data);
   }, []);
 
   // 선택된 카드의 댓글을 가져오는 useEffect
@@ -87,6 +88,7 @@ export default function ArchivePage() {
           }
         });
     }
+    console.log(data);
   }, [selectedCard]);
 
   // 첫 번째 ChipFilter에서 필터링된 데이터 업데이트
@@ -137,12 +139,14 @@ export default function ArchivePage() {
     const filteredData = data.filter((obj) => obj.type.includes(lnbfilter));
     setDatalistLNB(filteredData);
     setFiltered(filteredData);
+    console.log(data);
   }, []);
 
   useEffect(() => {
     const filteredData = data.filter((obj) => obj.type.includes(lnbfilter));
     setDatalistLNB(filteredData);
     setFiltered(filteredData);
+    console.log(data);
   }, [data, lnbfilter]);
 
   // 데이터 필터링
@@ -158,7 +162,7 @@ export default function ArchivePage() {
 
       return isFiltered1 && isFiltered3;
     });
-
+    console.log(data);
     console.log(datalist1, datalist2, datalist3);
     setFiltered(filtering);
   }, [datalist1, datalist2, datalist3, data, dataLNB, lnbfilter, majordata]);
