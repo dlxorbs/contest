@@ -13,7 +13,9 @@ export default function Modal(props) {
 
             <div className="textcon">
               <span className="title">{props.title}</span>
-              <span className="studentinfo">{props.studentinfo}</span>
+              <span className="studentinfo">
+                {props.type === "Now" ? props.studentinfo : ""}
+              </span>
             </div>
           </div>
 

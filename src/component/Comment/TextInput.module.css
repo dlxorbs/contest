@@ -9,10 +9,8 @@
   width: 100%;
   min-height: var(--minheight);
   height: var(--height);
-  margin: var(--margin);
   font-size: var(--fontsize);
   font-weight: var(--fontweight);
-  line-height: var(--lineheight);
   white-space: normal;
   background-color: transparent;
   resize: none;

@@ -4,7 +4,7 @@ import styles from "./card.module.css";
 export default function NameTag(props) {
   return (
     <div className={styles.nametag}>
-      <span>{props.title || "전공"}</span>
+      <span>{props.title || "제목"}</span>
       {/* 이형태로 컴포넌트 만들자 */}
       <div className={styles.iconsContainer}>
         <span

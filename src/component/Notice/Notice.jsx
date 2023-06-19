@@ -112,11 +112,12 @@ function Notice(props) {
 
       {props.type == "info" && (
         <div className={styles.Btncon}>
-          <Button className={"line"} title={"자세히 보기"} />
           <Button
-            title={"신청하기"}
+            className={"line"}
+            title={"자세히 보기"}
             onClick={props.onInfoClick}
           />
+          <Button title={"신청하기"} />
         </div>
       )}
     </div>

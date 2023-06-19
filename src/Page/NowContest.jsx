@@ -13,11 +13,12 @@ export default function NowContest(props) {
   const [data, setData] = useState([]);
   const [dataform, setDataform] = useState([dummy[0]]);
   const [filtered, setFiltered] = useState([]); // data에서 기반으로 필터링한 데이터 저장
-  const [lnbfilter, setLnbfilter] = useState(0);
+  const [lnbfilter, setLnbfilter] = useState(20231);
   const [dataLNB, setDatalistLNB] = useState([]); // LNB 받아온 데이터 저장
   const [selectedCard, setSelectedCard] = useState(null);
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
+  const [type, setType] = useState("Now");
   const [post, setPost] = useState({
     id: "",
     title: "",
@@ -76,21 +77,26 @@ export default function NowContest(props) {
     console.log(clickedItem);
 
     if (clickedItem === category[0].secondary[0]) {
-      setLnbfilter(0);
+      setLnbfilter(20231);
+      setType("Now");
     }
 
     if (clickedItem === category[0].secondary[1]) {
-      setLnbfilter(1);
+      setLnbfilter(20232);
+      setType("Now");
     }
 
     if (clickedItem === category[1].secondary[0]) {
-      setLnbfilter(2);
+      setLnbfilter(20233);
+      setType("Now");
     }
     if (clickedItem === category[2]) {
-      setLnbfilter(3);
+      setLnbfilter(20234);
+      setType("Vote");
     }
     if (clickedItem === category[3]) {
-      setLnbfilter(4);
+      setLnbfilter(20235);
+      setType("Vote");
     }
   };
 
@@ -149,7 +155,7 @@ export default function NowContest(props) {
         <div className={styles.CardCon}>
           {list}
           {filtered.length > 0 ? ( // filtered에 데이터가 있는지 확인
-            <CardList data={filtered} type={"Now"} openModal={openModal} />
+            <CardList data={filtered} type={type} openModal={openModal} />
           ) : (
             <div className={styles.nothing}> 내용이 없습니다. </div>
           )}

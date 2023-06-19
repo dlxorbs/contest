@@ -94,12 +94,7 @@ export default function ArchivePage() {
     setDatalist1(filterdata);
   };
 
-  // // 두 번째 ChipFilter에서 필터링된 데이터 업데이트
-  // const updateFilter2 = (filterdata) => {
-  //   setDatalist2(filterdata);
-  // };
-
-  // 세 번째 ChipFilter에서 필터링된 데이터 업데이트
+  // 두 번째 ChipFilter에서 필터링된 데이터 업데이트
   const updateFilter3 = (filterdata) => {
     setDatalist3(filterdata);
   };
@@ -156,9 +151,7 @@ export default function ArchivePage() {
       // 첫 번째 ChipFilter 데이터 필터링
       const isFiltered1 =
         datalist1.length === 0 || datalist1.includes(obj.major);
-      // 두 번째 ChipFilter 데이터 필터링
-      // const isFiltered2 =
-      //   datalist2.length === 0 || datalist2.includes(obj.year);
+
       // 세 번째 ChipFilter 데이터 필터링
       const isFiltered3 =
         datalist3.length === 0 || datalist3.includes(obj.grade);

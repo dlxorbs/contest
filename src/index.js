@@ -7,6 +7,7 @@ import NowContest from "./Page/NowContest";
 import Header from "./component/Header/Header";
 import ArchivePage from "./Page/ArchivePage";
 import NoticePage from "./Page/NoticePage";
+import MainPage from "./Page/MainPage";
 import NoticeViewPage from "./Page/NoticeViewPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -15,7 +16,8 @@ root.render(
     <Header></Header>
 
     <Routes>
-      <Route index element={<NowContest />}></Route>
+      <Route index element={<MainPage />}></Route>
+      <Route path="Now" element={<NowContest />}></Route>
       <Route path="Archive" element={<ArchivePage />}></Route>
       <Route path="Notice" element={<NoticePage />}></Route>
       <Route path="Notice/:id" element={<NoticeViewPage />}></Route>

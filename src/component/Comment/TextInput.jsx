@@ -12,9 +12,7 @@ export default function TextInput(props) {
           "--height": props.height + "px",
           "--minheight": props.minheight + "px",
           "--fontsize": props.fontsize + "px",
-          "--fontweight": props.fontweight,
-          "--lineheight": props.lineheight + "%",
-          "--margin": props.margin,
+          "--fontweight": props.fontweight,  
         }}
         value={props.value}
         onChange={props.onChange}

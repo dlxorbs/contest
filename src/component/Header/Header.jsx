@@ -30,15 +30,19 @@ function Header(props) {
       <div className={styles.headerContainer}>
         <div className={styles.navWrapper}>
           <img
+            className={styles.logo}
             src={
               "https://www.tukorea.ac.kr/sites/en/images/common/logo_footer.png"
             }
+            onClick={() => {
+              nav("/");
+            }}
           ></img>
           <Nav
             title="진행중인 콘테스트"
             onClick={function () {
               console.log("진행중인 콘테스트로 이동");
-              nav("/");
+              nav("/Now");
             }}
           />
           <Nav
@@ -49,7 +53,7 @@ function Header(props) {
             }}
           />
           <Nav
-            title="콘테스트 공지사항"
+            title="콘테스트 정보"
             onClick={function () {
               console.log("콘테스트 공지사항로 이동");
               nav("/Notice");

@@ -31,7 +31,7 @@
   color: #fff;
 }
 
-.bottomOverlay {
+.bottomOverlay:hover {
   background: linear-gradient(180deg, rgba(20, 20, 21, 0) 0%, #14141580 80%);
 }
 
@@ -43,12 +43,12 @@
   font-size: 16px;
 }
 
-.bottomOverlay > span {
+.bottomOverlay:hover > span {
   display: block;
 }
 
-.studentinfo {
-  display: var(--display) !important`;
+.bottomOverlay:hover .studentinfo {
+  display: var(--display) !important;
 }
 
 .nametag {

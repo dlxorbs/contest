@@ -9,7 +9,8 @@ export default function CardThumb(props) {
         style={{ "--thumbnail": "url(" + props.thumbnail + ")" }}
       ></div>
       <div className={styles.bottomOverlay}>
-        <span>{props.major || "전공"}</span>
+        {props.type == "Vote" && <span>{props.title}</span>}
+        <span>{props.major}</span>
         <span
           className={styles.studentinfo}
           style={{
@@ -18,6 +19,7 @@ export default function CardThumb(props) {
         >
           {props.studentinfo || "학생정보"}
         </span>
+        {props.children}
       </div>
     </div>
   );

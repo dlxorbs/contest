@@ -10,7 +10,9 @@
   height: 72px;
   z-index: 99;
 }
-
+.logo {
+  cursor: pointer;
+}
 .headerContainer {
   display: flex;
   justify-content: space-between;

@@ -46,7 +46,7 @@ export default function NoticePage(props) {
 
   return (
     <div className={styles.page_Wrapper}>
-      <h3>공지사항</h3>
+      <h3>콘테스트 정보</h3>
       <div className={styles.InnerContainer}>
         <div className={styles.navCon}>
           <Category data={category} onItemClick={handleItemClick} />
