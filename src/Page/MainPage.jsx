@@ -133,6 +133,7 @@ function MainPage() {
     autoplay: true,
     pauseOnHover: false,
     autoplaySpeed: 5000,
+    swipe: false,
   };
   return (
     <div className={styles.outer_Wrapper}>

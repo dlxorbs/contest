@@ -2,6 +2,7 @@ import React from "react";
 import "./Modal.css";
 import CommentInput from "../component/Comment/CommentInput";
 import CommentList from "../component/Comment/CommentList";
+import FloatButton from "../component/Button/FloatButton";
 
 export default function Modal(props) {
   return (
@@ -31,7 +32,13 @@ export default function Modal(props) {
           </div>
         </div>
 
-        <div className="floatBtncon"></div>
+        <div className="floatBtncon">
+          <div className="floattext">
+            <FloatButton icon={"favorite"}></FloatButton>
+            <span>좋아요</span>
+          </div>
+          <FloatButton icon={"favorite"}></FloatButton>
+        </div>
       </div>
       <div className="Modalfull" onClick={props.onClick}></div>
     </div>

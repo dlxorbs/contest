@@ -130,7 +130,7 @@ export default function ArchivePage() {
     }
 
     if (clickedItem === category[1].secondary[0]) {
-      setLnbfilter(2);
+      setLnbfilter(20224);
     }
   };
 
