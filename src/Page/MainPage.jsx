@@ -11,7 +11,6 @@ import Modal from "./ModalPage";
 import data from "../data/data.json";
 import NoticeList from "../component/Notice/NoticeList";
 import Carousel from "react-simply-carousel";
-import Slider from "infinite-react-carousel";
 
 function MainPage() {
   const [ndata, setNData] = useState([]);
@@ -36,7 +35,11 @@ function MainPage() {
 
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [activeSlideIndex2, setActiveSlideIndex2] = useState(0);
+  const [activeSlideBanner, setActiveSlideBanner] = useState(0);
 
+  const handleSlideChangeBanner = (newActiveSlideBanner) => {
+    setActiveSlideBanner(newActiveSlideBanner);
+  };
   const handleSlideChange = (newActiveSlideIndex) => {
     setActiveSlideIndex(newActiveSlideIndex);
   };
@@ -53,19 +56,18 @@ function MainPage() {
         qs.forEach((doc) => {
           Datas.push(doc.data());
         });
+        const filteredData = Datas.filter((obj) => obj.type.includes(20231));
         setNData(Datas);
-        setNfilterData(Datas);
+        setNfilterData(filteredData);
       });
   }, []);
 
   // 초기 필터링을 수행하는 useEffect
+  // 처음 페이지 나올때 캐러셀 이상해지는 부분다시 렌더하여 잡아주기
   useEffect(() => {
     const filteredData = nfilterdata.filter((obj) => obj.type.includes(20231));
     setNfilterData(filteredData);
-  }, []);
-  useEffect(() => {
-    const filteredData = nfilterdata.filter((obj) => obj.type.includes(20231));
-    setNfilterData(filteredData);
+    console.log(filteredData);
   }, [ndata]);
 
   useEffect(() => {
@@ -77,7 +79,6 @@ function MainPage() {
           Datas.push(doc.data());
         });
         setAData(Datas);
-        console.log(adata);
       });
   }, []);
 
@@ -90,12 +91,14 @@ function MainPage() {
         .then((doc) => {
           const data = doc.data();
           if (data) {
-            console.log(data);
             setPost(data);
             setComments(data.comments);
+            console.log(selectedNCard);
           }
         });
     }
+
+    console.log(ndata);
   }, [selectedNCard]);
 
   useEffect(() => {
@@ -128,22 +131,39 @@ function MainPage() {
     ? $("#root").css({ height: "100vh", overflow: "hidden" })
     : $("#root").css({ height: "", overflow: "" });
 
-  const settings = {
-    arrows: false,
-    autoplay: true,
-    pauseOnHover: false,
-    autoplaySpeed: 5000,
-    swipe: false,
-  };
   return (
     <div className={styles.outer_Wrapper}>
-      <Slider {...settings}>
+      <Carousel
+        infinite={true}
+        autoplay={true}
+        disableSwipeByMouse={true}
+        activeSlideIndex={activeSlideBanner}
+        onRequestChange={handleSlideChangeBanner}
+        itemsToShow={1}
+        itemsToScroll={1}
+        delay={3000}
+        speed={1300}
+        containerProps={{
+          style: {
+            position: "relative",
+            overflow: "hidden",
+          },
+        }}
+        centerMode
+        dotsNav={{
+          show: false,
+        }}
+        forwardBtnProps={{ show: false }}
+        backwardBtnProps={{ show: false }}
+      >
         <div className={styles.banner} />
         <div className={styles.banner} />
-      </Slider>
+      </Carousel>
+
       <div className={styles.page_Wrapper}>
         <h3>현재 진행중인 콘테스트</h3>
         <Carousel
+          disableSwipeByMouse={true}
           activeSlideIndex={activeSlideIndex}
           onRequestChange={handleSlideChange}
           itemsToShow={4}
@@ -212,6 +232,7 @@ function MainPage() {
         </Carousel>
         <h3>아카이빙 된 콘테스트</h3>
         <Carousel
+          disableSwipeByMouse={true}
           activeSlideIndex={activeSlideIndex2}
           onRequestChange={handleSlideChange2}
           itemsToShow={4}
